@@ -1,0 +1,75 @@
+/*select*/
+$select_width: 100%;
+$select_background: #fff;
+$select_border-width: 1px;
+$select_border-style: solid;
+$select_border-color: rgba(31, 32, 65, 0.25);
+$select_rounding: 4px;
+
+/*select header*/
+$select-header_height: 44px;
+$select-header_rounding: 4px;
+
+/*
+    select header text
+*/
+
+$select-header-text_size: 14px;
+$select-header-text_height: 24px;
+$select-header-text_color: rgba(31, 32, 65, 0.75);
+
+/*
+    select icon container
+*/
+
+$select-box-icon_width: 44px;
+$select-box-icon_height: 44px;
+
+/*
+    select icon
+*/
+
+$select-icon_content: '\f107';
+$select-icon_size: 24px;
+$select-icon_text_height: 24px;
+$select-icon_font: 'Font Awesome 5 Pro';
+$select-icon_color: rgba(31, 32, 65, 0.5);
+
+/*
+    select icon animated
+*/
+
+$select-icon_rotate_color: #8ba4f9;
+
+/*
+    select body 
+*/
+$select-body_width: 100%;
+$select-body_shadow_color: rgba(31, 32, 65, 0.05);
+$select-body_top_left_corner: none;
+$select-body_top_right_corner: none;
+$select-body_bottom_left_corner: 4px;
+$select-body_bottom_right_corner: 4px;
+
+/*
+    select item
+*/
+$select-item_border_thick: 1px;
+$select-item_border_style: solid;
+$select-item_border_color: rgba(31, 32, 65, 0.25);
+$select-item_background: #fff;
+
+/*
+    select item hover
+*/
+
+$select-item_color_hovered: #fff;
+$select-item_background_hovered: rgba(31, 32, 65, 0.75);
+$select-item_background_hovered_colored: linear-gradient(180deg, #bc9cff 0, #8ba4f9 100%);
+
+/*
+    select item text
+*/
+$select-item_text_size: 14px;
+$select-item_text_height: 24px;
+$select-item_color: rgba(31, 32, 65, 0.75);

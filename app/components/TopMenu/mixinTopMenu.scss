@@ -1,0 +1,51 @@
+/*
+    menu styles
+*/
+
+$menu_background: #fff;
+
+/*
+    menu link styles
+*/
+
+$menu_link_color: rgba(31, 32, 65, 0.5);
+$menu_link_underline: none;
+$menu_link_size: 14px;
+$menu_link_height: 17px;
+$menu_color_link_hovered: #fff;
+
+/*
+    menu-item
+*/
+$menu-item_background_hovered: linear-gradient(180deg, #bc9cff 0, #8ba4f9 100%);
+
+/*
+    submenu styles
+*/
+
+$submenu_default_background: #fff;
+$submenu_default_border_width: 2px;
+$submenu_default_border_style: solid;
+$submenu_default_border_color: #1f2041;
+
+/*
+    custom options
+*/
+$submenu_rounding: 22px;
+$submenu_border_color: #bc9cff;
+
+$submenu_text_size: 14px;
+$submenu_text_height: 17px;
+
+/*
+    submenu item styles
+*/
+
+$submenu_item_default_background: #fff;
+$submenu_item_default_color: #1f2041;
+
+/*
+    submenu item custom styles
+*/
+
+$submenu_item_color: rgba(31, 32, 65, 0.5);

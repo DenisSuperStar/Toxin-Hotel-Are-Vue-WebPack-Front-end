@@ -1,0 +1,116 @@
+@import './mixinApp.scss';
+@import './mixinOptionsSelect.scss';
+
+/*
+    import mixin with some file
+*/
+@mixin flexible($align, $item) {
+    display: flex;
+    justify-content: $align;
+    align-items: $item;
+}
+
+@mixin slice {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.simple-select,
+.select-with-counter,
+.select-score {
+    position: relative;
+    width: $select_width;
+    background: $select_background;
+    border-width: $select_border-width;
+    border-style: $select_border-style;
+    border-color: $select_border-color;
+    border-radius: $select_rounding;
+    cursor: pointer;
+    &__header {
+        @include flexible(space-between, center);
+        height: $select-header_height;
+        border-radius: $select-header_rounding;
+        padding: 12px 0 8px 15px;
+    }
+    &__current {
+        font-size: $select-header-text_size;
+        line-height: $select-header-text_height;
+        font-family: $app_font;
+        color: $select-header-text_color;  
+        @include slice();
+    }
+    &__icon {
+        pointer-events: none;
+        &::after {
+            @include flexible(center, center);
+            width: $select-box-icon_width;
+            height: $select-box-icon_height;
+            content: $select-icon_content;
+            font-size: $select-icon_size;
+            line-height: $select-icon_text_height;
+            font-family: $select-icon_font;
+            color: $select-icon_color;
+        }
+        /*
+            select icon animation
+        */
+        &--animated-icon {
+            transform: rotate(0deg);
+            transition: transform 0.3s ease;
+        }
+    }
+    &.active &__icon {
+        &--animated-icon {
+            transform: rotate(180deg);
+            transition: transform 0.3s ease;
+        }
+        &--animated-icon::after {
+            color: $select-icon_rotate_color;
+        }
+    }
+    &__body {
+        position: absolute;
+        width: $select-body_width;
+        box-shadow: 0 10px 20px $select-body_shadow_color;
+        border-top-left-radius: $select-body_top_left_corner;
+        border-top-right-radius: $select-body_top_right_corner;
+        border-bottom-left-radius: $select-body_bottom_left_corner;
+        border-bottom-right-radius: $select-body_bottom_right_corner;
+        max-height: 181px;
+        overflow: auto;
+        margin: 1px 0 0 0;
+    }
+    &__item {
+        border-bottom-width: $select-item_border_thick;
+        border-bottom-style: $select-item_border_style;
+        border-bottom-color: $select-item_border_color;
+        background: $select-item_background;
+        font-size: $select-item_text_size;
+        line-height: $select-item_text_height;
+        font-family: $app_font;
+        color: $select-item_color;
+        padding: 12px 0 8px 15px;
+        cursor: pointer;
+        @include slice();
+        &:hover {
+            color: $select-item_color_hovered;
+            background: $select-item_background_hovered;
+        }
+        &--colored:hover {
+            background: $select-item_background_hovered_colored;
+        }
+    }
+}
+
+/*
+    select animation of transition object
+*/
+
+.dropdown-enter-active, .dropdown-leave-active {
+    transition: height 0.5s ease-in-out;
+}
+
+.dropdown-enter, .dropdown-leave-to {
+    height: 0;
+}

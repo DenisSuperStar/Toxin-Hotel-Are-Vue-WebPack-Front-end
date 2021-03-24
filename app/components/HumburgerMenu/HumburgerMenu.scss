@@ -1,0 +1,33 @@
+/*
+    humburger menu default options
+*/
+
+$humburger-menu_width: 40px;
+$humburger-menu_height: 40px;
+
+$humburger-menu_default_background: #fff;
+$humburger-menu_default_border_thick: 1px;
+$humburger-menu_default_border_style: solid;
+$humburger-menu_default_border_color: #1f2041;
+$humburger-menu-line_default_background: linear-gradient(180deg, transparent 0%, #1f2041 100%);
+
+/*
+    humburger menu current options
+*/
+
+$humburger-menu_rounded: 50%;
+$humburger-menu_border_thick: 2px;
+$humburger-menu_border_style: solid;
+$humburger-menu_border_color: #8ba4f9;
+
+/*
+    humburger menu stripes
+*/
+
+$humburger-menu-side-line_width: 18px;
+$humburger-menu-side-line_height: 2px;
+
+$humburger-menu-central-line_width: 25px;
+$humburger-menu-central-line_height: 2px;
+
+$humburger-menu-line_background: linear-gradient(180deg, #bc9cff 0, #8ba4f9 100%);

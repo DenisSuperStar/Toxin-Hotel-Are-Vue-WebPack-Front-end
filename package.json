@@ -1,0 +1,52 @@
+{
+  "name": "package",
+  "version": "1.0.0",
+  "description": "base config",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm i",
+    "build": "webpack",
+    "start": "webpack serve --mode development",
+    "watch": "webpack -w"
+  },
+  "keywords": [
+    "base"
+  ],
+  "author": "Denis",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.17",
+    "@babel/preset-env": "^7.12.17",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.0.2",
+    "eslint": "^7.20.0",
+    "eslint-loader": "^4.0.2",
+    "file-loader": "^6.2.0",
+    "node-sass": "^5.0.0",
+    "pug": "^3.0.0",
+    "pug-plain-loader": "^1.1.0",
+    "sass-loader": "^11.0.1",
+    "style-loader": "^2.0.0",
+    "stylelint": "^13.11.0",
+    "stylelint-webpack-plugin": "^2.1.1",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.23.0"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.2.5",
+    "html-webpack-plugin": "^5.2.0",
+    "vue": "^2.6.12",
+    "vue-loader": "^15.9.6",
+    "vue-router": "^3.5.1",
+    "vue-template-compiler": "^2.6.12",
+    "vuelidate": "^0.7.6",
+    "vuex": "^3.6.2",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 0.5%",
+    "IE 11"
+  ]
+}
