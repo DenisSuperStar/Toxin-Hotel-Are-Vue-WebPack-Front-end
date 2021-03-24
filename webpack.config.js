@@ -1,6 +1,7 @@
 const path = require('path');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 /*const StylelintPlugin = require('stylelint-webpack-plugin');*/
 
 module.exports = {
@@ -62,6 +63,12 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './app/index.html'
         }),
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new CleanWebpackPlugin({
+            dry: true,
+            verbose: true,
+            cleanStaleWebpackAssets: true,
+            protectWebpackAssets: false
+        })
     ]
 }
