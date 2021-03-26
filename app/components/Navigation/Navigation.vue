@@ -76,6 +76,7 @@
         width: 100%;
         @include flexible(space-between, flex-start);
         padding: 104px 140px 100px 140px;
+        box-shadow: 0 1px 0 rgba(31, 32, 65, 0.1);
         &__logo-box {
             display: flex;
             align-items: center;
