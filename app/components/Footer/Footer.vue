@@ -12,27 +12,40 @@
                 copyright
             ul(class="footer__social-box")
                 template(v-for="social in socials")
-                    social(:social-icon="social")
+                    li(class="footer__social-item")
+                        social_icon(
+                            :icon-link="social.link" 
+                            :icon-name="social.icon_name"
+                        )
 </template>
 
 <script>
     import copyright from '../Copyright/Copyright.vue';
     import navigation from '../Navigation/Navigation.vue';
-    import social from '../Social/Social.vue';
+    import social_icon from '../Social/Social.vue';
 
     export default {
         name: 'basement',
         components: {
             copyright,
             navigation,
-            social  
+            social_icon  
         },
         data: () => {
             return {
                 socials: [
-                    {link: '//twitter.com', key_class: 'social__icon--twed'},
-                    {link: '//facebook.com', key_class: 'social__icon--fbed'},
-                    {link: '//vk.com', key_class: 'social__icon--vked'}
+                    {
+                        link: '//twitter.com',
+                        icon_name: 'is-twitter'
+                    },
+                    {
+                        link: '//facebook.com',
+                        icon_name: 'is-facebook'
+                    },
+                    {
+                        link: '//vk.com',
+                        icon_name: 'is-vk'
+                    }
                 ]
             }
         }
@@ -48,8 +61,6 @@
         align-items: $item;
     }
     .footer {
-        min-width: $footer_min-width;
-        width: $footer_width;
         &__navigation-box {
             @include flexible(space-between, center);
             width: 100%;
@@ -67,11 +78,27 @@
                 box-shadow: 0 1px rgba(31, 32, 65, 0.1);
             }
         }
+        &__client-box {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+            padding: 26px 140px;
+        }
         &__social-box {
             display: flex;
             margin: 0;
             list-style: none;
-            background: #fff;
+        }
+        &__social-item {
+            display: block;
+            padding: 0 20px;
+            &:first-child,
+            &:last-child {
+                padding: 0;
+            }
         }
     }
 </style>
