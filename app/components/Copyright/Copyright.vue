@@ -14,5 +14,6 @@
         font-size: 14px;
         line-height: 17px;
         color: rgba(31, 32, 65, 0.75);
+        font-family: 'Montserrat', sans-serif;
     }
 </style>
