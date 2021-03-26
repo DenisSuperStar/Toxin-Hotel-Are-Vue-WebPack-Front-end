@@ -1,61 +1,88 @@
 <template lang="pug">
-    li(class="social")
-        a(:href="socialIcon.link" class="social__link")
-            span(class="social__icon" :class="socialIcon.key_class")
+    div(class="social-icon")
+        a(
+            :href="iconLink" 
+            class=`
+                social-icon__link
+                social-icon__link--animated
+            ` 
+            :class="iconName"
+        )
 </template>
 
 <script>
     export default {
-       name: 'Social',
-       props: ['socialIcon']
+        name: 'social_icon',
+        props: {
+            iconLink: {
+                type: String,
+                default: ''
+            },
+            iconName: {
+                type: String,
+                default: ''
+            }
+        }
     }
 </script>
 
 <style lang="scss" scoped>
-    @mixin flexible($align, $item) {
-        display: flex;
-        justify-content: $align;
-        align-items: $item;
-    }
 
-    .social {
-        display: block;
-        margin: 0 20px 0 0;
+    .social-icon {
+        width: max-content;
+        background: linear-gradient(180deg, #bc9cff 100%, #8ba4f9 100%);
         &__link,
         &__link:hover {
-            text-decoration: none;
-        }
-        &__icon {
-            @include flexible(center, center);
-            width: 24px;
-            height: 24px;
-            color: #fff;
+            display: block;
             font-size: 24px;
-            line-height: 23px;
-            font-family: 'Font Awesome 5 Pro';
-            cursor: pointer;
-            &--twed::after,
-            &--fbed::after,
-            &--vked::after {
-                color: #8ba4f9;
+            background: #fff;
+            text-decoration: none;
+            mix-blend-mode: screen;
+        }
+        &__link {
+            &::before {
+                display: block;
+                font-family: 'Font Awesome 5 Brands';
             }
-            &--twed::after {
+            &.is-twitter::before {
                 content: '\f099';
             }
-            &--fbed::after {
+            &.is-facebook::before {
                 content: '\f082';
             }
-            &--vked::after {
-                content: '\f16d'
+            &.is-vk::before {
+                content: '\f16d';
+            }
+            &--animated:hover::before {
+                padding: 20px;
+                background: linear-gradient(180deg, #bc9cff 100%, #8ba4f9 100%);
+                border-radius: 2px;
+                transition: all 0.5s ease-in-out;
+                animation: jelly 0.75s ease forwards;
             }
         }
     }
 
-    .social__icon--twed::after {
-        color: #8ba4f9;
-        content: '\f099';
-        font-family: 'Font Awesome 5 Pro';
-        font-weight: bold;
+    @keyframes jelly {
+        0%, 20% {
+            transform: scale(1);
+            border-radius: 40px;
+            background: linear-gradient(180deg, #bc9cff 100%, #8ba4f9 100%);
+        }
+        30% {
+            transform: scale(1.2);
+        }
+        40% {
+            transform: scale(1.1);
+        }
+        50% {
+            transform: scale(1);
+            border-radius: 10px;
+        }
+        60%, 100% {
+            transform: scale(1);
+            border-radius: 5px;
+        }
     }
 </style>
 
