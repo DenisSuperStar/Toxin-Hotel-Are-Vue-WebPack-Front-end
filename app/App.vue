@@ -72,6 +72,9 @@
         font: inherit;
     }
 
+    /*
+        open and close rules of dropdown 
+    */
     .close-list {
         display: none;
         border: none;
@@ -85,6 +88,9 @@
         display: block;
     }
 
+    /*
+        animation subtitle
+    */
     .subheader-animate {
         &__break.share:hover > &__character {
             color: #fff;
