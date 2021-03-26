@@ -49,19 +49,12 @@
                     div(class="card-rotating__user-zone")
                         div(class="card-rotating__rating-box")
                             div(class="card-rotating__star-rating")
-                                template(v-for="item in countActiveStars")
-                                    span(
-                                        class=`
-                                            card-rotating__star-item 
-                                            card-rotating__star-item--painted-over 
-                                            is-active-star`
-                                        )
-                                template(v-for="item in (count_stars - countActiveStars)")
-                                    span(
-                                        class=`
-                                            card-rotating__star-item 
-                                            card-rotating__star-item--painted-over 
-                                            is-disabled-star`
+                                template(v-for="item in count_stars")
+                                    div(class="card-rotating__star")
+                                        a(
+                                            class="card-rotating__star-link"
+                                            :class="{'is-active-star': item <= data_active}"
+                                            @click="set(item)"
                                         )
                         div(class="card-rotating__review-box")
                             span(class="card-rotating__count-review") {{countReview}}
@@ -84,6 +77,7 @@
         },
         data: () => {
             return {
+                star: 0,
                 content_background: `
                     Взору гостей открывается огромное сооружение,
                     венчающий комплекс из 3-х небоскребов
@@ -91,7 +85,9 @@
                 count_stars: 5,
                 slides: 4,
                 active: 1,
+                count_active: 1,
                 rotate: false,
+                data_active: 0,
                 pages: [
                     {
                         id: 1,
@@ -390,7 +386,13 @@
             },
             turn: function() {
                 this.rotate =! this.rotate;
+            },
+            set: function(value) {
+                this.data_active = value;
             }
+        },
+        created: function() {
+            this.data_active = this.countActiveStars; 
         },
         props: {
             number: {
@@ -641,29 +643,6 @@
             line-height: 18px;
             color: rgba(31, 32, 65, 0.5);
         }
-        &__star-item {
-            display: flex;
-            width: max-content;
-            align-items: center;
-            padding: 0 2px 0 0;
-            &::after {
-                content: '\☆';
-                font-size: 24px;
-            }
-            &.is-active-star::after,
-            &.is-disabled-star::after {
-                display: block;
-            }
-            &.is-active-star::after {
-               content: '\★'; 
-            }
-            &.is-disabled-star::after {
-                content: '\☆';
-            }
-            &--painted-over::after {
-                color: #8ba4f9;
-            }
-        }
         &__count-review {
             padding: 0 5px 0 0;
         }
@@ -674,6 +653,36 @@
                 border-top-right-radius: 4px; 
             }
         }
+        &__rating-box {
+            padding: 8px 0 0 0;
+        }
+        /*Gradient rating star*/
+        &__star-rating {
+            display: flex;
+            width: max-content;
+            align-items: center;
+            overflow: hidden;
+        }
+        &__star {
+            width: auto;
+            background: linear-gradient(180deg, #bc9cff 100%, #8ba4f9 100%);
+        }
+        &__star > &__star-link,
+        &__star > &__star-link:hover {
+            display: block;
+            font-size: 24px;
+            line-height: 20px;
+            background: #fff;
+            mix-blend-mode: screen;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        &__star > &__star-link::before {
+            content: '\☆'; 
+        }
+        &__star > &__star-link.is-active-star::before {
+            content: '\★';
+        }
     }
 
     @media screen and (min-width: 992px) and (max-width: 1140px) {
@@ -681,7 +690,7 @@
             padding: 0;
             &__self-card,
             &__carousel {
-                width: 260px;
+                width: 260px; 
             }
             &__card-box {
                 margin: 0 0 12px 0;
@@ -691,4 +700,34 @@
             }
         }
     }
+
+    /*Перенести стили выше*/
+    /*.card-rotating {
+        &__star-rating {
+            display: flex;
+            width: max-content;
+            align-items: center;
+            overflow: hidden;
+        }
+        &__star {
+            width: auto;
+            background: linear-gradient(180deg, #bc9cff 100%, #8ba4f9 100%);
+        }
+        &__star > &__star-link,
+        &__star > &__star-link:hover {
+            display: block;
+            font-size: 24px;
+            line-height: 20px;
+            background: #fff;
+            text-decoration: none;
+            mix-blend-mode: screen;
+            cursor: pointer;
+        }
+        &__star > &__star-link::before {
+            content: '\☆';
+        }
+        &__star > &__star-link.is-active-star::before {
+            content: '\★';
+        }
+    }*/
 </style>
