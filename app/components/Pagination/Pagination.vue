@@ -44,6 +44,7 @@
     .just-pagination {
         width: 100%;
         display: flex;
+        justify-content: center;
         &__button,
         &__control {
             position: relative;
@@ -105,13 +106,6 @@
         .just-pagination {
             display: flex;
             justify-content: flex-end;
-        }
-    }
-
-    @media screen and (min-width: 1601px) {
-        .just-pagination {
-            display: flex;
-            justify-content: center;
         }
     }
 </style>

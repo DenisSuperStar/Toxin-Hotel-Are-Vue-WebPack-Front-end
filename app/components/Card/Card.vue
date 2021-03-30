@@ -1,6 +1,13 @@
 <template lang="pug">
-    div(class="card-rotating card-rotating--main-font")
-        div(class="card-rotating__card-box" :class="{'is-turn-card': rotate}")
+    div(class="card-rotating card-rotating--main")
+        div(
+            class=`
+                card-rotating__card-box 
+                card-rotating__card-box--animated 
+                card-rotating__card-box--slow-motion
+                ` 
+                :class="{'is-turn-card': rotate}"
+            )
             div(class="card-rotating__self-card card-rotating__self-card--front-side")
                 div(class="card-rotating__carousel")
                     div(class="card-rotating__list-item")
@@ -22,18 +29,31 @@
                                             card-rotating__img--reshaped`
                                         @click="turn"
                                     )
-                    ul(class="card-rotating__tab-list")
+                    ul(
+                        class=`
+                            card-rotating__tab-list 
+                            card-rotating__tab-list--relocatable
+                            card-rotating__tab-list--free-around
+                            `
+                        )
                         template(v-for="(dot, index) in slides")
                             li(
                                 class=`
                                     card-rotating__tab
                                     card-rotating__tab--repainted
-                                    card-rotating__tab--modified-form`
+                                    card-rotating__tab--modified-form
+                                    card-rotating__tab--free-around
+                                    `
                                     :class="{'is-active-tab': ++index == active}"
                                     @click="jump(dot)"
 
                             )
-                div(class="card-rotating__card-body")
+                div(
+                    class=`
+                        card-rotating__card-body 
+                        card-rotating__card-body--relocatable
+                        `
+                    )
                     div(class="card-rotating__card-title")
                         div(class="card-rotating__number-box")
                             div(class="card-rotating__number-box")
@@ -59,8 +79,19 @@
                         div(class="card-rotating__review-box")
                             span(class="card-rotating__count-review") {{countReview}}
                             span(class="card-rotating__review-text") {{reviewText}}
-            div(class="card-rotating__background-side" @click="turn")
-                span(class="card-rotating__content-background") {{content_background}}
+            div(
+                class=`
+                    card-rotating__background-side 
+                    card-rotating__background-side--relocatable
+                    card-rotating__background-side--rotated-animated
+                    ` 
+                    @click="turn"
+                )
+                span(
+                    class=`
+                        card-rotating__content-background 
+                        card-rotating__content-background--dynamic-stretching`
+                    ) {{content_background}}
                 div(class="card-rotating__redirect-button-box")
                     redirect_link
 </template>
@@ -449,19 +480,28 @@
         &.is-last-card {
             padding: 0;
         }
-        &--main-font {
-            font-family: 'Montserrat', sans-serif;
+        &--main {
             perspective: 1000px;
+            /*
+                the font changed from all text in this block card
+            */
+            font-family: 'Montserrat', sans-serif;
         }
         &__card-box {
             position: relative;
-            transform-style: preserve-3d;
-            transform: rotateY(180deg);
+            &--animated {
+                transform-style: preserve-3d;
+                transform: rotateY(180deg);  
+            }
+            &--animated.is-turn-card {
+                transform: rotateY(360deg);  
+            }
+            &--slow-motion {
+                transition: transform 1s ease-in-out;
+            }
             transition: transform 1s ease-in-out;
         }
-        &__card-box.is-turn-card {
-            transform: rotateY(360deg);
-        }
+        &__card-box
         &__self-card {
             position: relative;
             width: 270px;
@@ -478,19 +518,29 @@
         */
         &__background-side {
             width: 270px;
-            position: absolute;
-            top: 0;
-            bottom: 0;
             text-align: center;
             background: linear-gradient(180deg, #bc9cff 0, #8ba4f9 100%);
             color: #fff;
             padding: 12px 12px 0 12px;
-            backface-visibility: hidden;
+
+            &--relocatable {
+                position: absolute;
+                /*
+                    especial way for set the height
+                */
+                top: 0;
+                bottom: 0;
+            }
+            &--rotated-animated {
+                backface-visibility: hidden;
+            }
         }
         &__content-background {
-            height: 50%;
             display: flex;
             align-items: center;
+            &--dynamic-stretching {
+                height: 50%;
+            }
         }
         &__carousel {
             position: relative;
@@ -532,18 +582,25 @@
         */
         &__tab-list {
             display: flex;
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            margin: 0 16.61px 16.61px 0;
+            
+            &--relocatable {
+                position: absolute;
+                right: 0;
+                bottom: 0;
+            }
+            &--free-around {
+                margin: 0 16.61px 16.61px 0;
+            }
         }
         &__tab {
             display: block;
             width: 7.5px;
             height: 7.5px;
             background: #fff;
-            margin: 0 8px 0 0;
             cursor: pointer;
+            &--free-around {
+                margin: 0 8px 0 0;
+            }
             &:last-child {
                 margin: 0;
             }
@@ -563,11 +620,13 @@
             background: #fff;
         }
         &__card-body {
-            position: absolute;
-            bottom: 0;
             width: 100%;
             height: 105.62px;
             padding: 20.12px 18px 19px 20px;
+            &--relocatable {
+                position: absolute;
+                bottom: 0;
+            }
         }
         &__card-title,
         &__user-zone {
@@ -685,49 +744,21 @@
         }
     }
 
-    @media screen and (min-width: 992px) and (max-width: 1140px) {
+    @media screen and (max-width: 1140px) {
         .card-rotating {
             padding: 0;
+            &,
             &__self-card,
-            &__carousel {
-                width: 260px; 
+            &__carousel,
+            &__background-side {
+                width: 260px;
             }
             &__card-box {
                 margin: 0 0 12px 0;
             }
             &.is-last-card &__card-box {
-                margin: 0 0 calc(-12px * 10) 0;
+                margin: 0 0 12px 0;
             }
         }
     }
-
-    /*Перенести стили выше*/
-    /*.card-rotating {
-        &__star-rating {
-            display: flex;
-            width: max-content;
-            align-items: center;
-            overflow: hidden;
-        }
-        &__star {
-            width: auto;
-            background: linear-gradient(180deg, #bc9cff 100%, #8ba4f9 100%);
-        }
-        &__star > &__star-link,
-        &__star > &__star-link:hover {
-            display: block;
-            font-size: 24px;
-            line-height: 20px;
-            background: #fff;
-            text-decoration: none;
-            mix-blend-mode: screen;
-            cursor: pointer;
-        }
-        &__star > &__star-link::before {
-            content: '\☆';
-        }
-        &__star > &__star-link.is-active-star::before {
-            content: '\★';
-        }
-    }*/
 </style>

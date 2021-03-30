@@ -204,21 +204,25 @@
         align-items: $item;
     }
 
-    .grid-items {
-        width: 100%;
-        margin: 0 140px 0 0;
-        max-width: 835px;
+    @mixin half_flexible($align) {
+        display: flex;
+        justify-content: $align;
     }
 
-    @media screen and (min-width: 992px) and (max-width: 1199px) {
+    .grid-items {
+        width: 100%;
+    }
+
+    @media screen and (max-width: 1199px) {
         .grid-items {
-            margin: 0 30px 0 0;
+            padding: 0;
+            max-width: none;
         }
     }
 
-    @media screen and (min-width: 1200px) and (max-width: 1440px) {
+    @media screen and (min-width: 1200px) and (max-width: 1470px) {
         .grid-items {
-            margin: 0 auto 0 0;
+            width: auto;
         }
     }
 
@@ -229,9 +233,10 @@
         }
     }
 
-    @media screen and (max-width: 1200px) {
+    @media screen and (max-width: 1199px) {
         .grid-items {
             &__title {
+                @include half_flexible(center);
                 margin: 0;
                 padding: 21px 0;
             }
@@ -240,7 +245,32 @@
 
     .grid-items {
         &__items {
-            margin: 0 0 12px;
+            padding: 0 140px 0 0;
+        }
+    }
+
+    @media screen and (min-width: 960px) and (max-width: 1199px) {
+        .grid-items {
+            &__items {
+                display: flex;
+                flex-wrap: wrap;
+            }
+        }
+    }
+
+    @media screen and (max-width: 1199px) {
+        .grid-items {
+            &__items {
+                padding: 0;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1200px) and (max-width: 1399px) {
+        .grid-items {
+            &__items {
+                padding: 0 70px 0 0;
+            }
         }
     }
 
@@ -256,36 +286,16 @@
         }
     }
 
-    @media screen and (max-width: 1140px) {
+    @media screen and (max-width: 1199px) {
         .grid-items {
             &__item {
-                display: flex;
+                @include half_flexible(flex-start);
                 flex-flow: column;
                 margin: 0;
             }
             &__item > &__box-item {
                 @include flexible(center, center);
-                margin: 0 0 12px 0;
-                &:last-child {
-                    margin: 0;
-                }
             }
         }
     }
-
-    /*@media screen and (min-width: 961px) and (max-width: 1140px) {
-        .grid-items {
-            &__box-item {
-                width: 32%;
-            }
-        }
-    }
-
-    @media screen and (max-width: 960px) {
-        .grid-items {
-            &__box-item {
-                width: 100%;
-            }
-        }
-    }*/
 </style>

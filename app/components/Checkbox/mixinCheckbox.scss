@@ -1,5 +1,5 @@
 /*
-    checkbox_options
+    checkbox optionss
 */
 
 $checkbox_border_thick: 1px;
@@ -9,7 +9,15 @@ $checkbox_background: #fff;
 $checkbox_self_round: 4px;
 
 /*
-    check_mark_options
+    check mark default options
+*/
+
+$check_mark_default_thick: 1px;
+$check_mark_default_style: solid;
+$check_mark_default_color: #000;
+
+/*
+    check mark options
 */
 
 $check_mark_thick: 2px;

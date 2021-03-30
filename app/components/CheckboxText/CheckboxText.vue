@@ -23,7 +23,7 @@
 
     .checkbox-text {
         display: block;
-        width: 230px;
+        width: $checkbox_text-block_width;
         height: max-content;
         font-size: $checkbox_text_size;
         line-height: $checkbox_text_height;

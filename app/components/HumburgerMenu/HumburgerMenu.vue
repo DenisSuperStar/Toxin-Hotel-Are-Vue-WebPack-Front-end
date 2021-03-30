@@ -6,13 +6,13 @@
                 humburger-menu__btn--bright
                 humburger-menu__btn--rounded
                 humburger-menu__btn--slowled`
-                @click.self="toggleShow"
+                @click.self="show"
         )
             div(class="humburger-menu__strike")
         div(class="humburger-menu__dropdown" :class="{shown: show}" v-show="show")
             div(class="humburger-menu__item")
                 a(class="humburger-menu__link") О нас
-            div(class="humburger-menu__item" @click="toggleSubmenu($event)")
+            div(class="humburger-menu__item" @click="open($event)")
                 span(class="humburger-menu__link") Услуги
                 div(class="humburger-menu__submenu")
                     ul(class="humburger-menu__submenu-list")
@@ -24,7 +24,7 @@
                 a(class="humburger-menu__link") Вакансии
             div(class="humburger-menu__item")
                 a(class="humburger-menu__link") Новости
-            div(class="humburger-menu__item" @click="toggleSubmenu($event)")
+            div(class="humburger-menu__item" @click="open($event)")
                 span(class="humburger-menu__link") Соглашения
                 div(class="humburger-menu__submenu")
                     ul(class="humburger-menu__submenu-list")
@@ -49,10 +49,10 @@
             }
         },
         methods: {
-            toggleShow: function() {
+            show: function() {
                 this.show =!this.show;
             },
-            toggleSubmenu: function(e) {
+            open: function(e) {
                 const self = e.target;
                 self.classList.toggle('current');
             }

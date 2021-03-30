@@ -1,10 +1,9 @@
 <template lang="pug">
-    main(class="central-area")
-        article(class="central-area__content")
+    main(class="content-site")
+        article(class="content-site__content")
             grid_box
-        div(class="central-area__paginator-box")
-            div(class="central-area__paginator")
-                pagination
+        div(class="content-site__pagination-box")
+            pagination
 
 </template>
 
@@ -22,37 +21,28 @@
 </script>
 
 <style lang="scss" scoped>
-    /*
-        Удалить pagintor block
-        rename paginator-box to pagination
-    */
-    .central-area {
+    .content-site {
         min-width: 350px;
-        &__paginator-box {
-            padding: 40.94px 0 104.56px 50%;
+    }
+
+    .content-site {
+        &__pagination-box {
+            padding: 40.94px 0 104.56px 0;
         }
     }
 
-    @media screen and (max-width: 1199px) {
-        .central-area {
-            &__paginator-box {
-                padding: 40.94px 0 104.56px 50px;
+    @media screen and (min-width: 1200px) and (max-width: 1450px) {
+        .content-site {
+            &__pagination-box {
+                padding: 40.94px 0 104.56px 50%;
             }
         }
     }
 
     @media screen and (min-width: 1451px) and (max-width: 1600px) {
-        .central-area {
-            &__paginator-box {
+        .content-site {
+            &__pagination-box {
                 padding: 40.94px 470.74px 104.56px 0;
-            }
-        }
-    }
-
-    @media screen and (min-width: 1601px) {
-        .central-area {
-            &__paginator-box {
-                padding: 40.94px 0 104.56px 0;
             }
         }
     }

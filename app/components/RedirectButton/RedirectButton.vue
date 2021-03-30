@@ -15,43 +15,6 @@
 </script>
 
 <style lang="scss" scoped>
-    /*.redirect-button {
-        display: block;
-        position: relative;
-        overflow: hidden;
-        text-decoration: none;
-        cursor: pointer;
-        &::before {
-            content: "";
-            top: 0;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            background: #fff;
-            transform: translateX(-100%);
-
-        }
-        &::before,
-        &::after {
-            content: "";
-            position: absolute;
-            transition: transform 0.5s ease-in-out;
-        }
-        &::after {
-            top: 0;
-            left: 0;
-            width: 0;
-            transition: width 0.5s ease-in-out;
-        }
-        & > &__link {
-            display: block;
-            position: relative;
-            color: #fff;
-            margin: 2px;
-            padding: 6px;
-            background: linear-gradient(180deg, #bc9cff 0%, #8ba4f9 100%);
-        }
-    }*/
     .redirect-button {
         display: block;
         position: relative;

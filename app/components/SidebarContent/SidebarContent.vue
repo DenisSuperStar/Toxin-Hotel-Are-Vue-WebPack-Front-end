@@ -212,6 +212,40 @@
     */
 
     .sidebar-box {
+        padding: 0 59px 0 140px;
+    }
+
+    @media screen and (min-width: 1400px) and (max-width: 1470px) {
+        .sidebar-box {
+            padding: 0;
+        }
+    }
+
+    @media screen and (min-width: 1200px) and (max-width: 1399px) {
+        .sidebar-box {
+            padding: 0 0 0 30px;
+        }
+    }
+
+    @media screen and (min-width: 960px) and (max-width: 1199px) {
+        .sidebar-box {
+            padding: 0 calc(59px / 2.4) 0 30px;
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 959px) {
+        .sidebar-box {
+            padding: 0 30px;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        .sidebar-box {
+            padding: 0 50px;
+        }
+    }
+
+    .sidebar-box {
         &__subheader-box {
             &--large {
                padding: 30px 0 5px 0; 

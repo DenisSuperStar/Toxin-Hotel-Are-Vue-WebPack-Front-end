@@ -31,20 +31,7 @@
         transition: all 0.5s ease-in-out;
     }
 
-    @media screen and (max-width: 991px) {
-        .header {
-            @include flexible(space-between, flex-start);
-            padding: 15px 24px;
-        }
-    }
-
-    @media screen and (min-width: 1400px) {
-        .sticky {
-           padding: 0 140px; 
-        }
-    }
-
-    @media screen and (min-width: 992px) {
+    @media screen and (min-width: 960px) {
         .sticky {
             position: fixed;
             background: #fff;
@@ -63,25 +50,60 @@
                 }
             }
             &::after {
-                content: "";
+                content: '';
                 display: block;
                 width: 100%;
-                height: 100%;
                 position: absolute;
                 top: 0;
+                bottom: 0;
                 left: 0;
                 transition: all 1s ease;
             }
         }
     }
 
-    @media screen and (min-width: 992px) and (max-width: 1400px) {
+    @media screen and (max-width: 767px) {
+        .header {
+            @include flexible(space-between, flex-start);
+            padding: 15px 24px;
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
         .header {
             padding: 15px 30px;
         }
+    }
+
+    @media screen and (min-width: 960px) and (max-width: 1199px) {
+        .sticky {
+            padding: 0 30px;
+        }
+    }
+
+    @media screen and (min-width: 1200px) and (max-width: 1399px) {
+        .header {
+            padding: 15px 70px 15px 30px;
+        }
 
         .sticky {
-            padding: 15px 0;
+            padding: 0 70px 0 30px;
+        }
+    }
+
+    @media screen and (min-width: 1400px) and (max-width: 1470px) {
+        .header {
+            padding: 15px 140px;
+        }
+
+        .sticky {
+            padding: 0 140px;
+        }
+    }
+
+    @media screen and (min-width: 1471px) {
+        .sticky {
+            padding: 0 140px;
         }
     }
 </style>

@@ -101,4 +101,22 @@
             }
         }
     }
+
+    @media screen and (max-width: 767px) {
+        .footer {
+            &__client-box {
+                display: flex;
+                flex-flow: column;
+                padding: 26px 0;
+            }
+        }
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1199px) {
+        .footer {
+            &__client-box {
+                padding: 26px 46px;
+            }
+        }
+    }
 </style>
