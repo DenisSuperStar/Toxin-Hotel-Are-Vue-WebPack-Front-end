@@ -744,15 +744,31 @@
         }
     }
 
-    @media screen and (max-width: 1140px) {
+    @media screen and (max-width: 1199px) {
         .card-rotating {
-            padding: 0;
+            &,
+            &__self-card,
+            &__carousel,
+            &__background-side {
+                width: 270px;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1200px) and (max-width: 1140px) {
+        .card-rotating {
             &,
             &__self-card,
             &__carousel,
             &__background-side {
                 width: 260px;
             }
+        }
+    }
+
+    @media screen and (max-width: 1140px) {
+        .card-rotating {
+            & {padding: 0;}
             &__card-box {
                 margin: 0 0 12px 0;
             }
