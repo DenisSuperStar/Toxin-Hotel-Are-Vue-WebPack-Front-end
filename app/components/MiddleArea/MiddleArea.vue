@@ -4,6 +4,7 @@
             grid_box
         div(class="content-site__pagination-box")
             pagination
+            div(class="pagination-text") 1 - 12 из 100+ вариантов аренды
 
 </template>
 
@@ -45,5 +46,12 @@
                 padding: 40.94px 470.74px 104.56px 0;
             }
         }
+    }
+
+    .pagination-text {
+        font-size: 14px;
+        line-height: 24px;
+        color: rgba(31, 32, 65, 0.75);
+        font-family: 'Montserrat', sans-serif;
     }
 </style>

@@ -1,7 +1,7 @@
 <template lang="pug">
     div(class="grid-items")
         div(class="grid-items__title")
-            div Title
+            div(class="gallery-title") Номера, которые мы для вас подобрали
         div(class="grid-items__items")
             div(class="grid-items__item")
                 div(class="grid-items__box-item" v-for="item in room_info" :key="item.id")
@@ -297,5 +297,13 @@
                 @include flexible(center, center);
             }
         }
+    }
+
+    .gallery-title {
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 29px;
+        color: #1f2041;
+        font-family: 'Montserrat', sans-serif;
     }
 </style>

@@ -1,15 +1,27 @@
 <template lang="pug">
     div(class="cm-menu")
         div(class="cm-menu__item" v-for="(item, index) in menu_items" :key="index")
-            template(v-if="(index + 1) == 2")
+            template(v-if="++index == 2")
                 div(class="cm-menu__title")
-                    a(class="cm-menu__link menu-link-animated" @click="dropdownToggle($event)") {{item}}
+                    a(
+                        class=`
+                            cm-menu__link
+                            cm-menu__link--tagged
+                            cm-menu__link--animated
+                            cm-menu__link--slow-motion
+                            ` 
+                            @click="dropdownToggle($event)"
+                    ) {{item}}
+                    span(
+                        class="cm-menu__icon" 
+                        @click="dropdownToggle($event)"
+                    )
                 div(class=`
                         cm-menu__submenu 
                         cm-menu__submenu--slide-animated
                         cm-menu__submenu--visible
                         cm-menu__submenu--decorated
-                        slide-down`
+                        is-slide-down`
                     )
                     ul(class="cm-menu__list cm-menu__list--decorated")
                         template(v-for="name in service_items")
@@ -18,17 +30,33 @@
                                 cm-menu__item--colored
                                 cm-menu__item--dropped`
                             ) {{name}}
-            template(v-else-if="(index + 1) == 5")
+            template(v-else-if="++index == 5")
                 div(class="cm-menu__title")
-                    a(class="cm-menu__link menu-link-animated" @click="dropdownToggle($event)") {{item}}
+                    a(
+                        class=`
+                            cm-menu__link 
+                            cm-menu__link--tagged
+                            cm-menu__link--animated
+                            cm-menu__link--slow-motion
+                            ` 
+                    ) {{item}}
+                    span(
+                        class="cm-menu__icon" 
+                        @click="dropdownToggle($event)"
+                    )
                 div(class=`
                         cm-menu__submenu 
                         cm-menu__submenu--slide-animated
                         cm-menu__submenu--visible
                         cm-menu__submenu--decorated 
-                        slide-down`
+                        is-slide-down`
                     )
-                    ul(class="cm-menu__list cm-menu__list--decorated")
+                    ul(
+                        class=`
+                            cm-menu__list 
+                            cm-menu__list--decorated
+                            `
+                    )
                         template(v-for="name in condition_items")
                             li(class=`
                                 cm-menu__item 
@@ -37,7 +65,14 @@
                             ) {{name}}
             template(v-else)
                 div(class="cm-menu__title")
-                    a(href='//google.com' class="cm-menu__link menu-link-animated") {{item}}
+                    a(
+                        href='//google.com' 
+                        class=`
+                            cm-menu__link
+                            cm-menu__link--animated
+                            cm-menu__link--slow-motion
+                        `
+                    ) {{item}}
 </template>
 
 <script>
@@ -73,7 +108,7 @@
                 const target = e.target;
                 const title = target.parentElement;
                 const item = title.parentElement;
-                const slide_down = item.querySelector('.slide-down');
+                const slide_down = item.querySelector('.is-slide-down');
 
                 if (slide_down.style.maxHeight) {
                     slide_down.style.maxHeight = null;
@@ -104,52 +139,75 @@
         position: relative;
     }
     &__title {
+        display: flex;
+        align-items: center;
         padding: 0 20px 0 0;
-    }
-    &__link {
-        position: relative; 
-        color: $menu_link_color;
-        font-size: $menu_link_size;
-        line-height: $menu_link_height;
-        font-family: $app_font;
-        z-index: 8;
-        cursor: pointer;
-        @include slice();
     }
     &__link,
     &__link:hover {
-        text-decoration: $menu_link_underline;
+        position: relative;
+        color: $menu_link_color;
+        text-decoration: none;
+        font-size: $menu_link_size;
+        line-height: $menu_link_height;
+        font-family: $app_font;
+        cursor: pointer;
+        @include slice();
+        z-index: 8; /*!!!*/
+    }
+    &__link {
+        &:hover {
+            color: $menu_color_link_hovered;
+        }
+        &::before,
+        &::after {
+            background: $menu-item_background_hovered;
+        }
+        &--slow-motion {
+            &,
+            &:hover {
+              transition: color 0.5s ease-in-out;  
+            }
+            &::before,
+            &::after {
+               transition: transform 0.5s ease-in-out; 
+            }
+        }
+        &--animated {
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                transform-origin: bottom;
+                transform: scaleY(0);
+                z-index: -1; /*!!!*/
+            }
+            &:hover::before,
+            &:hover::after {
+                transform: scaleY(1);
+                transform-origin: top;
+                z-index: -2; /*!!!*/
+            }
+        }
+    }
+    &__icon::after {
+        width: 24px;
+        height: max-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        content: '\f078';
+        font-size: 14px;
+        line-height: 20px;
+        color: rgba(31, 32, 65, 0.5);
+        font-family: 'Font Awesome 5 Pro';
     }
     &__item:last-child &__title {
         padding: 0;
-    }
-}
-
-.menu-link-animated {
-    transition: color 0.5s ease-in-out;
-    &:hover {
-        color: $menu_color_link_hovered;
-        transition: color 0.5s ease-in-out;
-    }
-    &::before,
-    &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: $menu-item_background_hovered;
-        transform-origin: bottom;
-        transform: scaleY(0);
-        z-index: -1;
-        transition: transform 0.5s ease-in-out;
-    }
-    &:hover::before,
-    &:hover::after {
-        transform: scaleY(1);
-        transform-origin: top;
-        z-index: -2;
     }
 }
 
