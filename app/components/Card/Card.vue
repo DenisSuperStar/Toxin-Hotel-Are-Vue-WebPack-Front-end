@@ -463,6 +463,12 @@
 </script>
 
 <style lang="scss" scoped>
+    @mixin slice {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     @mixin flexible($align, $item) {
         display: flex;
         justify-content: $align;
@@ -522,6 +528,8 @@
             background: linear-gradient(180deg, #bc9cff 0, #8ba4f9 100%);
             color: #fff;
             padding: 12px 12px 0 12px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
 
             &--relocatable {
                 position: absolute;
@@ -643,7 +651,9 @@
             font-weight: bold;
         }
         &__review-text {
+            width: 65px;
             font-weight: normal;
+            @include slice();
         }
         &__number-box,
         &__hr-box,
@@ -658,13 +668,14 @@
         }
         &__price {
             @include flexible(center, center);
-            width: max-content;
+            width: 42px;
             height: 20px;
             font-weight: bold;
             font-size: 14px;
             line-height: 24px;
             color: rgba(31, 32, 65, 0.5);
             padding: 0 5px 0 0;
+            @include slice();
         }
         &__prefix {
             font-weight: bold;
@@ -673,7 +684,7 @@
         &__number {
             display: flex;
             align-items: center;
-            width: max-content;
+            width: 46px;
             height: 24px;
             font-weight: bold;
             font-size: 17px;
@@ -681,6 +692,7 @@
             color: #1f2041;
             text-transform: uppercase;
             padding: 0 5px 0 5px;
+            @include slice();
         }
         &__number-type {
             @include flexible(center, center);
@@ -691,6 +703,7 @@
             line-height: 15px;
             text-transform: uppercase;
             color: #bc9cff;
+            @include slice();
         }
         &__period-box {
             width: max-content;
@@ -698,12 +711,18 @@
         }
         &__period {
             display: block;
+            width: 55px;
             font-size: 14px;
             line-height: 18px;
             color: rgba(31, 32, 65, 0.5);
+            @include slice();
         }
         &__count-review {
+            width: 35px;
+            display: flex;
+            justify-content: flex-end;
             padding: 0 5px 0 0;
+            @include slice();
         }
         &__img-box,
         &__img {
