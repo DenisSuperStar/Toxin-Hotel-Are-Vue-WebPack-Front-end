@@ -15,11 +15,21 @@
 </script>
 
 <style lang="scss" scoped>
+    @import '../../mixinApp.scss';
+    @import '../DescriptionLogoNav/mixinDescriptionNav.scss';
+
+    @mixin slice {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     .nav-description {
-        width: 260px;
-        font-size: 14px;
-        line-height: 24px;
-        font-family: 'Montserrat', sans-serif;
-        color: rgba(31, 32, 65, 0.75);
+        width: $nav-descrip-text_width;
+        font-size: $nav-descrip-text_size;
+        line-height: $nav-descrip-text_height;
+        font-family: $app_font;
+        color: $nav-descrip-text_color;
+        @include slice();
     }
 </style>
