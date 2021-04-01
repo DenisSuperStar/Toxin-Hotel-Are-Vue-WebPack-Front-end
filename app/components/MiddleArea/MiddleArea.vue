@@ -4,19 +4,21 @@
             grid_box
         div(class="content-site__pagination-box")
             pagination
-            div(class="pagination-text") 1 - 12 из 100+ вариантов аренды
+            pagination_text
 
 </template>
 
 <script>
     import grid_box from '../Grid/Grid.vue';
     import pagination from '../Pagination/Pagination.vue';
+    import pagination_text from '../PaginationText/PaginationText.vue';
 
     export default {
         name: 'central_area',
         components: {
             grid_box,
-            pagination
+            pagination,
+            pagination_text
         }    
     }
 </script>
@@ -46,12 +48,5 @@
                 padding: 40.94px 470.74px 104.56px 0;
             }
         }
-    }
-
-    .pagination-text {
-        font-size: 14px;
-        line-height: 24px;
-        color: rgba(31, 32, 65, 0.75);
-        font-family: 'Montserrat', sans-serif;
     }
 </style>
