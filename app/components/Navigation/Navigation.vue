@@ -35,10 +35,7 @@
         },
         data: () => {
             return {
-                nav_description: `
-                    Бронирование номеров в лучшем отеле 2019 года
-                    по версии ассоциации "Отдельные взгляды"
-                `,
+                nav_description: 'Бронирование номеров в лучшем отеле 2019 года по версии ассоциации "Отдельные взгляды"',
                 nav: [
                     'Навигация',
                     'О нас',
@@ -66,6 +63,8 @@
 </script>
 
 <style lang="scss" scoped>
+    @import '../Navigation/mixinFooterNav.scss';
+
     @mixin flexible($align, $item) {
         display: flex;
         justify-content: $align;
@@ -73,10 +72,10 @@
     }
 
     .navigation {
-        width: 100%;
+        width: $footer-nav_width;
         @include flexible(space-between, flex-start);
         padding: 104px 140px 100px 140px;
-        box-shadow: 0 1px 0 rgba(31, 32, 65, 0.1);
+        box-shadow: 0 1px 0 $footer-nav_shadow-color;
         &__logo-box {
             display: flex;
             align-items: center;

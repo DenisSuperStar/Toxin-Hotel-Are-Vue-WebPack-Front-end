@@ -19,6 +19,9 @@
 </script>
 
 <style lang="scss" scoped>
+    @import '../../mixinApp.scss';
+    @import '../LabelCheckbox/mixinLabelCheckbox.scss';
+
     @mixin slice {
         white-space: nowrap;
         overflow: hidden;
@@ -27,13 +30,15 @@
 
     .label-checkbox {
         display: block;
-        width: 192px;
-        height: max-content;
-        font: bold 14px / 18px 'Montserrat', sans-serif;
-        color: rgba(31, 32, 65, 0.5);
+        width: $label-checkbox_width;
+        font-weight: $label-checkbox_bold-text;
+        font-size: $label-checkbox_text-size;
+        line-height: $label-checkbox_text-height;
+        font-family: $app_font;
+        color: $label-checkbox_text-color;
         @include slice();
         &--uniq {
-            white-space: break-spaces;
+           white-space: break-spaces; 
         }
     }
 </style>
