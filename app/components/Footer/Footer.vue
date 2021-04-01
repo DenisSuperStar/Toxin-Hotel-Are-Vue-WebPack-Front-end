@@ -3,11 +3,16 @@
         div(
             class=`
                 footer__navigation-box 
-                footer__navigation-box--limited 
-                footer__navigation-box--decorated`
+                footer__navigation-box--limited
+                `
         )
             navigation
-        div(class="footer__client-box")
+        div(
+            class=`
+                footer__client-box 
+                footer__client-box--visual
+                `
+        )
             div(class="footer__info-box")
                 copyright
             ul(class="footer__social-box")
@@ -61,31 +66,31 @@
         align-items: $item;
     }
     .footer {
+        min-width: $footer_min_width;
+        width: $footer_width;
+        background: $footer_background;
         &__navigation-box {
             @include flexible(space-between, center);
-            width: 100%;
-            background: #fff;
             &--limited {
-                border-top-width: 1px;
-                border-top-style: solid;
-                border-top-color: rgba(31, 32, 65, 0.1);
+                border-top-width: $footer_border-thick;
+                border-top-style: $footer_border-style;
+                border-top-color: $footer_border-color;
 
-                border-bottom-width: 1px;
-                border-bottom-style: solid;
-                border-bottom-color: rgba(31, 32, 65, 0.1);
-            }
-            &--decorated {
-                box-shadow: 0 1px rgba(31, 32, 65, 0.1);
+                border-bottom-width: $footer_border-thick;
+                border-bottom-style: $footer_border-style;
+                border-bottom-color: $footer_border-color;
             }
         }
         &__client-box {
-            display: flex;
-            width: 100%;
-            justify-content: space-between;
-            align-items: center;
-            background: #fff;
-            box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+            @include flexible(space-between, center);
             padding: 26px 140px;
+            &--visual {
+                box-shadow: 0 10px 20px $footer_shadow_color_of_custom;
+            }
+        }
+        &__navigation-box,
+        &__client-box {
+            width: 100%;
         }
         &__social-box {
             display: flex;

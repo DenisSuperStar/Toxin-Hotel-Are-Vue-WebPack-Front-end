@@ -12,7 +12,6 @@
             div диапазон
             div range
         div(class="sidebar-box__range-slider")
-            //- в этом месте надо вставить компонент
             range_slider
         div(class="sidebar-box__checkboxes-block")
             div(class="sidebar-box__rules-block")

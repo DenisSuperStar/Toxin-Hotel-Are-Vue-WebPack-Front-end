@@ -19,7 +19,7 @@
     @import '../DescriptionLogoNav/mixinDescriptionNav.scss';
 
     @mixin slice {
-        white-space: nowrap;
+        white-space: break-spaces;
         overflow: hidden;
         text-overflow: ellipsis;
     }

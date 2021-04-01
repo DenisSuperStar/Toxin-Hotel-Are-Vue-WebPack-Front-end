@@ -10,7 +10,7 @@
                 cm-checkbox__fake
                 cm-checkbox__fake--round 
                 cm-checkbox__fake--animated
-                cm-checkbox__fake--relocatable
+                cm-checkbox__fake--slow-motion
                 cm-checkbox__fake--colored-mark
                 `
         )
@@ -50,6 +50,7 @@
 }
 
 .cm-checkbox {
+    position: relative;
     display: flex;
     &__input {
         @include hidden();
@@ -88,6 +89,10 @@
             &::after {
                 opacity: 0;
                 transform: rotate(45deg) scale(0);
+            }
+        }
+        &--slow-motion {
+            &::after {
                 /*
                     glide change of properties
                 */
@@ -95,12 +100,8 @@
                 transition-delay: 0.15s;
             }
         }
-        &--relocatable {
-            &::after {
-                position: absolute;
-            }
-        }
         &::after {
+            position: absolute;
             content: "";
             width: 5px;
             height: 8px;

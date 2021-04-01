@@ -13,7 +13,13 @@
                 pattern=".+@google.com"
                 required
             )
-            label(class="form-sending__label-of-input form-sending__label-of-input--animated") Email
+            label(
+                class=`
+                    form-sending__label-of-input 
+                    form-sending__label-of-input--animated
+                    form-sending__label-of-input--slow-motion
+                    `
+            ) Email
 </template>
 
 <script>
@@ -25,6 +31,12 @@
 <style lang="scss" scoped>
     @import '../../mixinApp.scss';
     @import '../FormSending/mixinFormSending.scss';
+
+    @mixin slice {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
 
     .form-sending {
         &__input-box {
@@ -59,6 +71,10 @@
                 padding: 12px 0 12px 15px;
             }
         }
+        &__label-of-input {
+            width: 60px;
+            @include slice();
+        }
         &__data:focus + &__label-of-input {
             position: absolute;
             padding: 13px 0 0 15px;
@@ -75,7 +91,9 @@
             pointer-events: none;
             &--animated {
                 transform: translateY(0);
-                transition: all 0.5s ease;
+            }
+            &--slow-motion {
+                transition: all 0.5s ease;  
             }
         }
     }
