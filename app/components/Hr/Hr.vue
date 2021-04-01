@@ -9,9 +9,11 @@
 </script>
 
 <style lang="scss" scoped>
+    @import '../Hr/mixinHr.scss';
+
     .hl {
-        width: 230px;
-        height: 1px;
-        background: rgba(31, 32, 65, 0.1);
+        width: $hr_width;
+        height: $hr_height;
+        background: $hr_background;
     }
 </style>
