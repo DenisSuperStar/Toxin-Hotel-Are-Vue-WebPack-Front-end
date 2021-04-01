@@ -139,9 +139,12 @@
         position: relative;
     }
     &__title {
+        padding: 0 20px 0 0;
+    }
+    &__item,
+    &__title {
         display: flex;
         align-items: center;
-        padding: 0 20px 0 0;
     }
     &__link,
     &__link:hover {
@@ -153,7 +156,7 @@
         font-family: $app_font;
         cursor: pointer;
         @include slice();
-        z-index: 8; /*!!!*/
+        z-index: 8;
     }
     &__link {
         &:hover {
@@ -184,13 +187,13 @@
                 height: 100%;
                 transform-origin: bottom;
                 transform: scaleY(0);
-                z-index: -1; /*!!!*/
+                z-index: -1;
             }
             &:hover::before,
             &:hover::after {
                 transform: scaleY(1);
                 transform-origin: top;
-                z-index: -2; /*!!!*/
+                z-index: -2;
             }
         }
     }
