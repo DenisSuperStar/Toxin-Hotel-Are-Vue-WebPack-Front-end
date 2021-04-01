@@ -9,11 +9,24 @@
 </script>
 
 <style lang="scss" scoped>
+    @import '../../mixinApp.scss';
+    @import '../Copyright/mixinCopyright.scss';
+
+    @mixin slice {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     .copyright {
+        /*
+            Задать ширину для этого блока с текстом
+        */
         display: block;
-        font-size: 14px;
-        line-height: 17px;
-        color: rgba(31, 32, 65, 0.75);
-        font-family: 'Montserrat', sans-serif;
+        font-size: $copyright_text-size;
+        line-height: $copyright_text-height;
+        font-family: $app_font;
+        color: $copyright_text-color;
+        @include slice();
     }
 </style>
