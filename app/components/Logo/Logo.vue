@@ -47,9 +47,6 @@
             border-radius: 50%;
         }
         &__item {
-            width: 11.76px;
-            height: 11.76px;
-            
             border-right-width: 1px;
             border-right-style: solid;
             border-right-color: #1f2041;
