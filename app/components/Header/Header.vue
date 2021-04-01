@@ -1,5 +1,10 @@
 <template lang="pug">
-    header(class="header")
+    header(
+        class=`
+            header 
+            header--slow-motion
+            `
+    )
         box_header
 </template>
 
@@ -15,39 +20,41 @@
 </script>
 
 <style lang="scss" scoped>
+    @import '../Header/mixinHeader.scss';
+
     @mixin flexible($align, $item) {
         display: flex;
         justify-content: $align;
         align-items: $item;
     }
 
+    /*
+        Добавить обработчик события scroll
+    */
+
     .header {
         @include flexible(space-between, center);
         padding: 15px 140px;
-        min-width: 350px;
-        width: 100%;
-        height: max-content;
-        background: #fff;
-        transition: all 0.5s ease-in-out;
-    }
-
-    @media screen and (min-width: 960px) {
-        .sticky {
-            position: fixed;
-            background: #fff;
-            box-shadow: none;
-            border-bottom-left-radius: 4px;
-            border-bottom-right-radius: 4px;
+        width: $header_width;
+        min-width: $header_min-width;
+        background: $header_background;
+        box-shadow: none;
+        &--slow-motion {
             transition: all 0.5s ease-in-out;
-            z-index: 9999;
+        }
+        &.is-sticky {
+            position: fixed;
+            border-bottom-left-radius: $header_round;
+            border-bottom-right-radius: $header_round;
             cursor: pointer;
+            z-index: 11;
             &:hover {
-                box-shadow: 0 10px 20px rgba(31, 32, 65, .24);
-                &::after {
-                    background: #fff;
-                    opacity: 0;
-                    transform: scaleX(1.4) scaleY(1.6);
-                }
+               box-shadow: 0 10px 20px $header_shadow-color; 
+            }
+            &:hover::after {
+                background: $header_background;
+                opacity: 0;
+                transform: scaleX(1.4) scaleY(1.6);
             }
             &::after {
                 content: '';
@@ -57,11 +64,16 @@
                 top: 0;
                 bottom: 0;
                 left: 0;
-                transition: all 1s ease;
             }
+        }
+        &--slow-motion.is-sticky {
+            transition: all 1s ease;
         }
     }
 
+    /*
+        max adaptibility the header
+    */
     @media screen and (max-width: 767px) {
         .header {
             @include flexible(space-between, flex-start);
@@ -76,33 +88,27 @@
     }
 
     @media screen and (min-width: 960px) and (max-width: 1199px) {
-        .sticky {
+        .header.is-sticky {
             padding: 0 30px;
         }
     }
 
     @media screen and (min-width: 1200px) and (max-width: 1399px) {
         .header {
-            padding: 15px 70px 15px 30px;
-        }
-
-        .sticky {
-            padding: 0 70px 0 30px;
+            & {padding: 15px 70px 15px 30px;}
+            &.is-sticky {padding: 0 70px 0 30px;}
         }
     }
 
     @media screen and (min-width: 1400px) and (max-width: 1470px) {
         .header {
-            padding: 15px 140px;
-        }
-
-        .sticky {
-            padding: 0 140px;
+            & {padding: 15px 140px;}
+            &.is-sticky {padding: 0 140px;}
         }
     }
 
     @media screen and (min-width: 1471px) {
-        .sticky {
+        .header.is-sticky {
             padding: 0 140px;
         }
     }
