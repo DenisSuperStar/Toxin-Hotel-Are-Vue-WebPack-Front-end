@@ -18,6 +18,13 @@
 
     @media screen and (min-width: 1200px) and (max-width: 1450px) {
         .pagination-text {
+            display: flex;
+            justify-content: flex-start;
+        }
+    }
+
+    @media screen and (min-width: 1200px) and (max-width: 1450px) {
+        .pagination-text {
             padding: 0 0 0 48.26px;
         }
     }

@@ -13,10 +13,10 @@
                     div(class="card-rotating__list-item")
                         template(v-for="(page, index) in pages")
                             div(
-                                    class="card-rotating__item" 
-                                    v-if="roomId == page.album_id" 
-                                    :class="{'is-active-item': page.switch_id == active}"
-                                )
+                                class="card-rotating__item" 
+                                v-if="roomId == page.album_id" 
+                                :class="[{'is-active-item': page.switch_id == active}, {'is-has-extend': page.extended}]"
+                            )
                                 div(
                                     class=`
                                         card-rotating__img-box 
@@ -29,13 +29,25 @@
                                             card-rotating__img--reshaped`
                                         @click="turn"
                                     )
+                                span(
+                                    class=`
+                                        card-rotating__prev 
+                                        card-rotating__prev--appeared
+                                        `
+                                )
+                                span(
+                                    class=`
+                                        card-rotating__next 
+                                        card-rotating__next--appeared
+                                        `
+                                )
                     ul(
                         class=`
                             card-rotating__tab-list 
                             card-rotating__tab-list--relocatable
                             card-rotating__tab-list--free-around
                             `
-                        )
+                    )
                         template(v-for="(dot, index) in slides")
                             li(
                                 class=`
@@ -50,10 +62,9 @@
                             )
                 div(
                     class=`
-                        card-rotating__card-body 
-                        card-rotating__card-body--relocatable
+                        card-rotating__card-body
                         `
-                    )
+                )
                     div(class="card-rotating__card-title")
                         div(class="card-rotating__number-box")
                             div(class="card-rotating__number-box")
@@ -82,16 +93,16 @@
             div(
                 class=`
                     card-rotating__background-side 
-                    card-rotating__background-side--relocatable
-                    card-rotating__background-side--rotated-animated
+                    card-rotating__background-side--vertical-stretch
+                    card-rotating__background-side--visible-state
                     ` 
                     @click="turn"
-                )
+            )
                 span(
                     class=`
                         card-rotating__content-background 
                         card-rotating__content-background--dynamic-stretching`
-                    ) {{content_background}}
+                ) {{content_background}}
                 div(class="card-rotating__redirect-button-box")
                     redirect_link
 </template>
@@ -124,289 +135,337 @@
                         id: 1,
                         album_id: 1,
                         url: 'https://via.placeholder.com/600/92c952',
-                        switch_id: 1
+                        switch_id: 1,
+                        extended: true
                     },
                     {
                         id: 2,
                         album_id: 1,
                         url: 'https://via.placeholder.com/600/771796',
-                        switch_id: 2
+                        switch_id: 2,
+                        extended: false
                     },
                     {
                         id: 3,
                         album_id: 1,
                         url: 'https://via.placeholder.com/600/24f355',
-                        switch_id: 3
+                        switch_id: 3,
+                        extended: false
                     },
                     {
                         id: 4,
                         album_id: 1,
                         url: 'https://via.placeholder.com/600/d32776',
-                        switch_id: 4
+                        switch_id: 4,
+                        extended: false
                     },
                     {
                         id: 5,
                         album_id: 2,
                         url: 'https://via.placeholder.com/600/f66b97',
-                        switch_id: 1
+                        switch_id: 1,
+                        extended: false
                     },
                     {
                         id: 6,
                         album_id: 2,
                         url: 'https://via.placeholder.com/600/56a8c2',
-                        switch_id: 2
+                        switch_id: 2,
+                        extended: false
                     },
                     {
                         id: 7,
                         album_id: 2,
                         url: 'https://via.placeholder.com/600/b0f7cc',
-                        switch_id: 3
+                        switch_id: 3,
+                        extended: false
                     },
                     {
                         id: 8,
                         album_id: 2,
                         url: 'https://via.placeholder.com/600/54176f',
-                        switch_id: 4
+                        switch_id: 4,
+                        extended: false
                     },
                     {
                         id: 9,
                         album_id: 3,
                         url: 'https://via.placeholder.com/600/51aa97',
-                        switch_id: 1
+                        switch_id: 1,
+                        extended: false
                     },
                     {
                         id: 10,
                         album_id: 3,
                         url: 'https://via.placeholder.com/600/810b14',
-                        switch_id: 2
+                        switch_id: 2,
+                        extended: false
                     },
                     {
                         id: 11,
                         album_id: 3,
                         url: 'https://via.placeholder.com/600/1ee8a4',
-                        switch_id: 3
+                        switch_id: 3,
+                        extended: false
                     },
                     {
                         id: 12,
                         album_id: 3,
                         url: 'https://via.placeholder.com/600/66b7d2',
-                        switch_id: 4 
+                        switch_id: 4,
+                        extended: false 
                     },
                     {
                         id: 13,
                         album_id: 4,
                         url: 'https://via.placeholder.com/600/197d29',
-                        switch_id: 1
+                        switch_id: 1,
+                        extended: false
                     },
                     {
                         id: 14,
                         album_id: 4,
                         url: 'https://via.placeholder.com/600/61a65',
-                        switch_id: 2
+                        switch_id: 2,
+                        extended: false
                     },
                     {
                         id: 15,
                         album_id: 4,
                         url: 'https://via.placeholder.com/600/f9cee5',
-                        switch_id: 3
+                        switch_id: 3,
+                        extended: false
                     },
                     {
                         id: 16,
                         album_id: 4,
                         url: 'https://via.placeholder.com/600/fdf73e',
-                        switch_id: 4
+                        switch_id: 4,
+                        extended: false
                     },
                     {
                         id: 17,
                         album_id: 5,
                         url: 'https://via.placeholder.com/600/9c184f',
-                        switch_id: 1
+                        switch_id: 1,
+                        extended: false
                     },
                     {
                         id: 18,
                         album_id: 5,
                         url: 'https://via.placeholder.com/600/1fe46f',
-                        switch_id: 2
+                        switch_id: 2,
+                        extended: false
                     },
                     {
                         id: 19,
                         album_id: 5,
                         url: 'https://via.placeholder.com/600/56acb2',
-                        switch_id: 3
+                        switch_id: 3,
+                        extended: false
                     },
                     {
                         id: 20,
                         album_id: 5,
                         url: 'https://via.placeholder.com/600/8985dc',
-                        switch_id: 4
+                        switch_id: 4,
+                        extended: false
                     },
                     {
                         id: 21,
                         album_id: 6,
                         url: 'https://via.placeholder.com/600/5e12c6',
-                        switch_id: 1
+                        switch_id: 1,
+                        extended: false
                     },
                     {
                         id: 22,
                         album_id: 6,
                         url: 'https://via.placeholder.com/600/45601a',
-                        switch_id: 2
+                        switch_id: 2,
+                        extended: false
                     },
                     {
                         id: 23,
                         album_id: 6,
                         url: 'https://via.placeholder.com/600/e924e6',
-                        switch_id: 3
+                        switch_id: 3,
+                        extended: false
                     },
                     {
                         id: 24,
                         album_id: 6,
                         url: 'https://via.placeholder.com/600/8f209a',
-                        switch_id: 4
+                        switch_id: 4,
+                        extended: false
                     },
                     {
                         id: 25,
                         album_id: 7,
                         url: 'https://via.placeholder.com/600/5e3a73',
-                        switch_id: 1
+                        switch_id: 1,
+                        extended: false
                     },
                     {
                         id: 26,
                         album_id: 7,
                         url: 'https://via.placeholder.com/600/474645',
-                        switch_id: 2
+                        switch_id: 2,
+                        extended: false
                     },
                     {
                         id: 27,
                         album_id: 7,
                         url: 'https://via.placeholder.com/600/c984bf',
-                        switch_id: 3
+                        switch_id: 3,
+                        extended: false
                     },
                     {
                         id: 28,
                         album_id: 7,
                         url: 'https://via.placeholder.com/600/392537',
-                        switch_id: 4
+                        switch_id: 4,
+                        extended: false
                     },
                     {
                         id: 29,
                         album_id: 8,
                         url: 'https://via.placeholder.com/600/602b9e',
-                        switch_id: 1
+                        switch_id: 1,
+                        extended: false
                     },
                     {
                         id: 30,
                         album_id: 8,
                         url: 'https://via.placeholder.com/600/372c93',
-                        switch_id: 2
+                        switch_id: 2,
+                        extended: false
                     },
                     {
                         id: 31,
                         album_id: 8,
                         url: 'https://via.placeholder.com/600/a7c272',
-                        switch_id: 3
+                        switch_id: 3,
+                        extended: false
                     },
                     {
                         id: 32,
                         album_id: 8,
                         url: 'https://via.placeholder.com/600/c70a4d',
-                        switch_id: 4
+                        switch_id: 4,
+                        extended: false
                     },
                     {
                         id: 33,
                         album_id: 9,
                         url: 'https://via.placeholder.com/600/501fe1',
-                        switch_id: 1
+                        switch_id: 1,
+                        extended: false
                     },
                     {
                         id: 34,
                         album_id: 9,
                         url: 'https://via.placeholder.com/600/35185e',
-                        switch_id: 2
+                        switch_id: 2,
+                        extended: false
                     },
                     {
                         id: 35,
                         album_id: 9,
                         url: 'https://via.placeholder.com/600/c96cad',
-                        switch_id: 3
+                        switch_id: 3,
+                        extended: false
                     },
                     {
                         id: 36,
                         album_id: 9,
                         url: 'https://via.placeholder.com/600/4d564d',
-                        switch_id: 4
+                        switch_id: 4,
+                        extended: false
                     },
                     {
                         id: 37,
                         album_id: 10,
                         url: 'https://via.placeholder.com/600/ea51da',
-                        switch_id: 1
+                        switch_id: 1,
+                        extended: false
                     },
                     {
                         id: 38,
                         album_id: 10,
                         url: 'https://via.placeholder.com/600/4f5b8d',
-                        switch_id: 2
+                        switch_id: 2,
+                        extended: false
                     },
                     {
                         id: 39,
                         album_id: 10,
                         url: 'https://via.placeholder.com/600/1e71a2',
-                        switch_id: 3
+                        switch_id: 3,
+                        extended: false
                     },
                     {
                         id: 40,
                         album_id: 10,
                         url: 'https://via.placeholder.com/600/3a0b95',
-                        switch_id: 4
+                        switch_id: 4,
+                        extended: false
                     },
                     {
                         id: 41,
                         album_id: 11,
                         url: 'https://via.placeholder.com/600/659403',
-                        switch_id: 1
+                        switch_id: 1,
+                        extended: false
                     },
                     {
                         id: 42,
                         album_id: 11,
                         url: 'https://via.placeholder.com/600/ca50ac',
-                        switch_id: 2
+                        switch_id: 2,
+                        extended: false
                     },
                     {
                         id: 43,
                         album_id: 11,
                         url: 'https://via.placeholder.com/600/6ad437',
-                        switch_id: 3
+                        switch_id: 3,
+                        extended: false
                     },
                     {
                         id: 44,
                         album_id: 11,
                         url: 'https://via.placeholder.com/600/29fe9f',
-                        switch_id: 4
+                        switch_id: 4,
+                        extended: false
                     },
                     {
                         id: 45,
                         album_id: 12,
                         url: 'https://via.placeholder.com/600/c4084a',
-                        switch_id: 1
+                        switch_id: 1,
+                        extended: false
                     },
                     {
                         id: 46,
                         album_id: 12,
                         url: 'https://via.placeholder.com/600/e9b68',
-                        switch_id: 2
+                        switch_id: 2,
+                        extended: false
                     },
                     {
                         id: 47,
                         album_id: 12,
                         url: 'https://via.placeholder.com/600/b4412f',
-                        switch_id: 3
+                        switch_id: 3,
+                        extended: false
                     },
                     {
                         id: 48,
                         album_id: 12,
                         url: 'https://via.placeholder.com/600/68e0a8',
-                        switch_id: 4
+                        switch_id: 4,
+                        extended: false
                     }
                 ]
             }
@@ -524,22 +583,22 @@
         */
         &__background-side {
             width: 270px;
+            position: absolute;
+            top: 0;
             text-align: center;
             background: linear-gradient(180deg, #bc9cff 0, #8ba4f9 100%);
             color: #fff;
             padding: 12px 12px 0 12px;
             border-top-left-radius: 4px;
             border-top-right-radius: 4px;
-
-            &--relocatable {
-                position: absolute;
+            &--vertical-stretch { /*pseudo height*/
                 /*
                     especial way for set the height
                 */
                 top: 0;
                 bottom: 0;
             }
-            &--rotated-animated {
+            &--visible-state {
                 backface-visibility: hidden;
             }
         }
@@ -549,6 +608,10 @@
             &--dynamic-stretching {
                 height: 50%;
             }
+        }
+        &__item:not(.is-has-extend) > &__prev,
+        &__item:not(.is-has-extend) > &__next {
+            display: none;
         }
         &__carousel {
             position: relative;
@@ -590,7 +653,6 @@
         */
         &__tab-list {
             display: flex;
-            
             &--relocatable {
                 position: absolute;
                 right: 0;
@@ -629,12 +691,10 @@
         }
         &__card-body {
             width: 100%;
+            position: absolute;
+            bottom: 0;
             height: 105.62px;
             padding: 20.12px 18px 19px 20px;
-            &--relocatable {
-                position: absolute;
-                bottom: 0;
-            }
         }
         &__card-title,
         &__user-zone {
@@ -730,6 +790,25 @@
                 border-top-left-radius: 4px;
                 border-top-right-radius: 4px; 
             }
+        }
+        &__prev,
+        &__next {
+            position: absolute;
+            width: 15%;
+            @include flexible(center, center);
+            text-align: center;
+            background: transparent;
+            color: #fff;
+            &--appeared {
+                top: 0;
+                bottom: 0;
+            }
+        }
+        &__prev {
+            left: 0;
+        }
+        &__next {
+            right: 0;
         }
         &__rating-box {
             padding: 8px 0 0 0;
