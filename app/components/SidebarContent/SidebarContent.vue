@@ -8,9 +8,9 @@
             subheader(:subheader-text="title_count_arrivals")
         div(class="sidebar-box__dropdownbox")
            select_simple(:options="count_arrivals" :placeholder="start_count") 
-        div(class="sidebar-box__title-range")
-            div диапазон
-            div range
+        div(class="sidebar-box__title-range-box") 
+            //div(class="title-range") диапазон
+            //div(class="title-range-price") 5 000<span class="title-range-price__rub"></span> - 10 000<span class="title-range-price__rub"></span>
         div(class="sidebar-box__range-slider")
             range_slider
         div(class="sidebar-box__checkboxes-block")
@@ -262,7 +262,7 @@
                 padding: 30px 0 4.56px 0;
             }
         }
-        &__title-range {
+        &__title-range-box {
             @include flexible(space-between, center);
             width: 100%;
             padding: 30.44px 0 0 0;
@@ -288,5 +288,30 @@
                 margin: 16px 0 0 0;
             }
         }
+    }
+
+    .title-range {
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+        color: #1f2041;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .title-range-price {
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+        color: rgba(31, 32, 65, 0.5);
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .title-range-price__rub::after {
+        content: '\f158';
+        font-family: 'Font Awesome 5 Pro';
+        color: rgba(31, 32, 65, 0.5);
+        font-size: 11px;
+        line-height: 15px;
     }
 </style>
