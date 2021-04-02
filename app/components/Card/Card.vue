@@ -143,21 +143,21 @@
                         album_id: 1,
                         url: 'https://via.placeholder.com/600/771796',
                         switch_id: 2,
-                        extended: false
+                        extended: true
                     },
                     {
                         id: 3,
                         album_id: 1,
                         url: 'https://via.placeholder.com/600/24f355',
                         switch_id: 3,
-                        extended: false
+                        extended: true
                     },
                     {
                         id: 4,
                         album_id: 1,
                         url: 'https://via.placeholder.com/600/d32776',
                         switch_id: 4,
-                        extended: false
+                        extended: true
                     },
                     {
                         id: 5,
@@ -794,21 +794,49 @@
         &__prev,
         &__next {
             position: absolute;
-            width: 15%;
+            width: 42px;
             @include flexible(center, center);
             text-align: center;
-            background: transparent;
             color: #fff;
+            background: transparent;
+            cursor: pointer;
+            &:hover {
+                background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 100%));
+                transform: matrix(-1, 0, 0, 1, 0, 0);
+                transition: all 0.5s ease-in-out;
+            }
             &--appeared {
                 top: 0;
                 bottom: 0;
+                &::after {
+                    content: '\f078';
+                    font-size: 24px;
+                    line-height: 24px;
+                    font-family: 'Font Awesome 5 Pro';
+                }
             }
         }
         &__prev {
-            left: 0;
+            &--appeared {
+                & {left: 0;}
+                &::after {
+                    transform: rotate(90deg);
+                }
+                &:hover::after {
+                    transform: rotate(-90deg);
+                }
+            }
         }
         &__next {
-            right: 0;
+            &--appeared {
+                & {right: 0;}
+                &::after {
+                    transform: rotate(-90deg);
+                }
+                &:hover::after {
+                    transform: rotate(90deg);
+                }
+            }
         }
         &__rating-box {
             padding: 8px 0 0 0;
