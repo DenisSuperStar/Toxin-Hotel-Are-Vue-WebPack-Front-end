@@ -228,9 +228,11 @@
     &__submenu {
         display: block;
         position: absolute;
+        top: 0;
         right: 0;
         width: 150px;
         background: $submenu_default_background;
+        margin: 30px 0 0 0;
         &--slide-animated {
             overflow: hidden;
             max-height: 0;
