@@ -1,50 +1,55 @@
 <template lang="pug">
-    div(class="range-slider" @click="apperField")
-        input(
-            type="range" 
-            class=`
-                range-slider__range 
-                current-color
-                range-slider__range--colored` 
-            min="5000" 
-            max="10000" 
-            step="100" 
-            v-model="sliderMin"
-        )
-        input(
-            type="number" 
-            class=`
-                range-slider__number 
-                range-slider__number--colored 
-                range-slider__number--transparented` 
-            min="5000" 
-            max="10000" 
-            step="100" 
-            v-model="sliderMin" 
-            v-show="show_field"
-        )
-        input(
-            type="range" 
-            class=`
-                range-slider__range
-                current-color 
-                range-slider__range--colored` 
-            min="5000" 
-            max="10000" 
-            step="100"  
-            v-model="sliderMax"
-        )
-        input(
-            type="number" 
-            class=`
-                range-slider__number 
-                range-slider__number--colored 
-                range-slider__number--transparented` 
-            min="5000" 
-            max="10000" 
-            step="100" 
-            v-model="sliderMax" v-show="show_field"
-        )
+    div()
+        div(style="display: flex; justify-content: space-between;")
+            div(class="title-range") диапазон
+            div(class="title-range-price") 5 000<span class="title-range-price__rub"></span> - 10 000<span class="title-range-price__rub"></span>
+        div(class="sidebar-box__range-slider")
+            div(class="range-slider" @click="apperField")
+                input(
+                    type="range" 
+                    class=`
+                        range-slider__range 
+                        current-color
+                        range-slider__range--colored` 
+                    min="5000" 
+                    max="10000" 
+                    step="100" 
+                    v-model="sliderMin"
+                )
+                input(
+                    type="number" 
+                    class=`
+                        range-slider__number 
+                        range-slider__number--colored 
+                        range-slider__number--transparented` 
+                    min="5000" 
+                    max="10000" 
+                    step="100" 
+                    v-model="sliderMin" 
+                    v-show="show_field"
+                )
+                input(
+                    type="range" 
+                    class=`
+                        range-slider__range
+                        current-color 
+                        range-slider__range--colored` 
+                    min="5000" 
+                    max="10000" 
+                    step="100"  
+                    v-model="sliderMax"
+                )
+                input(
+                    type="number" 
+                    class=`
+                        range-slider__number 
+                        range-slider__number--colored 
+                        range-slider__number--transparented` 
+                    min="5000" 
+                    max="10000" 
+                    step="100" 
+                    v-model="sliderMax" v-show="show_field"
+                )
 </template>
 
 <script>
@@ -197,5 +202,30 @@
                 height: $control_height_less;
             }
         }
+    }
+
+    .title-range {
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+        color: #1f2041;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .title-range-price {
+        font-size: 12px;
+        line-height: 15px;
+        text-transform: uppercase;
+        color: rgba(31, 32, 65, 0.5);
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .title-range-price__rub::after {
+        content: '\f158';
+        font-family: 'Font Awesome 5 Pro';
+        color: rgba(31, 32, 65, 0.5);
+        font-size: 11px;
+        line-height: 15px;
     }
 </style>
