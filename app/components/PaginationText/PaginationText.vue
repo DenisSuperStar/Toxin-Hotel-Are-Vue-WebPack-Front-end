@@ -9,7 +9,7 @@
     .pagination-text {
         display: flex;
         justify-content: center;
-        padding: 0;
+        padding: 10.56px 0 0 0;
         font-size: $pagination-text_size;
         line-height: $pagination-text_height;
         color: $pagination-text_color;
@@ -20,6 +20,7 @@
         .pagination-text {
             display: flex;
             justify-content: flex-start;
+            font-size: $pagination-text_size - 1;
         }
     }
 
