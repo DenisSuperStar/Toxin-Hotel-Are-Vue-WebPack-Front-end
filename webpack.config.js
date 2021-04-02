@@ -26,7 +26,8 @@ module.exports = {
                     loaders: {
                         scss: 'vue-style-loader!css-loader!sass-loader'
                     },
-                    postcss: [require('autoprefixer')]
+                    postcss: [require('autoprefixer')],
+                    hotReload: true
                 }
             },
             {
