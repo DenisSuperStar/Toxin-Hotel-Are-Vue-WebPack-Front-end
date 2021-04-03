@@ -1,7 +1,7 @@
 <template lang="pug">
     div(class="grid-items")
         div(class="grid-items__title")
-            div(class="gallery-title") Номера, которые мы для вас подобрали
+            title_gallery
         div(class="grid-items__items")
             div(class="grid-items__item")
                 div(class="grid-items__box-item" v-for="item in room_info" :key="item.id")
@@ -60,11 +60,13 @@
 
 <script> 
     import card from '../Card/Card.vue';
+    import title_gallery from '../TitleGallery/TitleGallery.vue';
 
     export default {
         name: 'grid_items',
         components: {
-            card
+            card,
+            title_gallery
         },
         data: () => {
             return {
@@ -299,11 +301,5 @@
         }
     }
 
-    .gallery-title {
-        font-weight: bold;
-        font-size: 24px;
-        line-height: 29px;
-        color: #1f2041;
-        font-family: 'Montserrat', sans-serif;
-    }
+    
 </style>
