@@ -1,17 +1,17 @@
 <template lang="pug">
     div(class="grid")
         sidebar
-        card_area
+        card_gallery
 </template>
 
 <script>
     import sidebar from '../Sidebar/Sidebar.vue';
-    import card_area from '../GridItems/GridItems.vue';
+    import card_gallery from '../GridItems/GridItems.vue';
 
     export default {
         name: 'grid',
         components: {
-            card_area,
+            card_gallery,
             sidebar
         }
     }
