@@ -1,5 +1,9 @@
 <template lang="pug">
-    div(class="simple-select" @click="toggleDropdown" :class="[{active: show_dropdown}, master]")
+    div(
+      class="simple-select" 
+      @click="toggleDropdown" 
+      :class="[{active: show_dropdown}, master]"
+    )
       div(class="simple-select__header")
         span(class="simple-select__current" ref="placeholder") {{placeholder}}
         div(
