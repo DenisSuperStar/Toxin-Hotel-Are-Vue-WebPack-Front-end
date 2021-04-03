@@ -1,5 +1,5 @@
 <template lang="pug">
-    div(class="cm-menu")
+    nav(class="cm-menu")
         div(class="cm-menu__item" v-for="(item, index) in menu_items" :key="index")
             template(v-if="++index == 2")
                 div(class="cm-menu__title")
