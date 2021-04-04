@@ -1,55 +1,69 @@
-/*range-slider*/
+/*
+    range slider
+*/
 
+$range-slider_width: 50%;
 $range-slider_height: 6px;
-$range-slider_rounded_corner: 3px;
 $range-slider_default_background: rgba(31, 32, 65, 0.5);
-$range-slider_default_border: none;
+$range-slider_default_border-width: 0;
+$range-slider_default_border-style: none;
+$range-slider_default_border-color: transparent;
+$range-slider_round: 3px;
 
-/*controls*/
+/*
+    range custom
+*/
 
-$control_width: 18px;
-$control_height: 18px;
-$control_rounding: 10px;
-$control_default_background: rgba(31, 32, 65, 0.5);
-$control_default_border: none;
-$control_rounding: 10px;
+$range-slider_background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
+
+/*
+    controls
+*/
+
+$slider-thumb_width: 18px;
+$slider-thumb_height: 18px;
+$slider-thumb_default_background: rgba(31, 32, 65, 0.5);
+$slider-thumb_default_border-width: 0;
+$slider-thumb_default_border-style: none;
+$slider-thumb_default_border-color: transparent;
+$slider-thumb_round: 10px;
 
 /*
     controls custom
 */
 
-$control_background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
+$slider-thumb_background: linear-gradient(180deg, #6fcf97 0%, #66d2ea 100%);
 
 /*
     fields of control which 
     bind with self controls
 */
 
-$field_width: 100px;
-$field_default_color: rgba(31, 32, 65, 0.5);
-$field_default_background: #fff;
-$field_default_border-thick: none;
-$field_default_border-style: none;
-$field_default_border-color: none;
-$field_rounding: 4px;
+$number_width: 100px;
+$number_default_color: rgba(31, 32, 65, 0.5);
+$number_default_background: #fff;
+$number_default_border-width: 0;
+$number_default_border-style: none;
+$number_default_border-color: transparent;
+$number_round: 4px;
+$number_font-size: 14px;
+$number_text-height: 24px;
 
 /*
     fields colored
 */
-$field_border-thick: 1px;
-$field_border-style: solid;
-$field_border-color: transparent;
-$field_color: #fff;
-$field_background: linear-gradient(180deg, #bc9cff 0, #8ba4f9 100%);
-$field_opacity: 0.75;
+
+$number_color: #fff;
+$number_background: linear-gradient(180deg, #bc9cff 0, #8ba4f9 100%);
+$number_opacity: 0.75;
 
 /*
     if invalid value was input in field
 */
 
-$field_invalid_border-thick: 2px;
-$field_invalid_border-style: solid;
-$field_invalid_border-color: #ff6347;
+$number_invalid_border-width: 2px;
+$number_invalid_border-style: solid;
+$number_invalid_border_color: #ff6347;
 
 /*
     range slider styles if adaptive from 1200 to 1440
