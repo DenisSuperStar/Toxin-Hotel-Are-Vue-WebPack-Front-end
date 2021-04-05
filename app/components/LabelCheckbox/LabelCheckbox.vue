@@ -28,6 +28,10 @@
         text-overflow: ellipsis;
     }
 
+    @mixin checkboxLabel() {
+        
+    }
+
     .label-checkbox {
         display: block;
         width: $label-checkbox_width;

@@ -24,6 +24,14 @@
     @import '../../mixinApp.scss';
     @import '../NavList/mixinFooterNavList.scss';    
 
+    @mixin titleItem() {
+
+    }
+
+    @mixin item() {
+        
+    }
+
     .nav-list {
         font-family: $app_font;
         &__item-box {
