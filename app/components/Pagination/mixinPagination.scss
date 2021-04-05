@@ -1,34 +1,45 @@
-/*
-    pagination options default button
-*/
+@mixin button(
+    $button_width,
+    $button_height,
+    $button_default_background,
+    $button_default_color
+) {
+    width:          $button_width;
+    height:         $button_height;
+    background:     $button_default_background;
+    color:          $button_defaul_color;
+}
 
-$pagination_width: 40px;
-$pagination_height: 40px;
-$pagination_button_default_background: #fff;
-$pagination_button_default_color-text: rgba(31, 32, 65, 0.5);
+@mixin buttonActive(
+    $button-active_background,
+    $button-active_color,
+    $button-active_round
+) {
+    background:         $button-active_background;
+    color:              $button-active_color;
+    border-radius:      $button-active_round
+}
 
-/*
-    pagination options active button
-*/
+@mixin thumb(
+    $switcher_background,
+    $switcher_round
+) {
+    background:         $switcher_background;
+    border-radius:      $switcher_round;
+}
 
-$pagination_active-button_background: linear-gradient(180deg, #bc9cff 0, #8ba4f9 100%);
-$pagination_active-button_color-text: #fff;
-$pagination_active-button_round: 22px;
-
-/*
-    pagintion options controls
-*/
-
-$pagination_prev-control_img: '\f060';
-$pagination_next-control_img: '\f061';
-
-$pagination_control_width: 24px;
-$pagination_control_height: 24px;
-
-$pagination_size_icon-control: 20px;
-$pagintion_height_icon-control: 24px;
-$pagintion_color_icon-control: #fff;
-$pagintion_icon-control_type-font: 'Font Awesome 5 Pro';
-
-$pagintion_background_control: linear-gradient(180deg, #6fcf97 0, #66d2ea 100%);
-$pagintion_round_control: 22px;
+@mixin thumbIcon(
+    $thumb-icon_width,
+    $thumb-icon_height,
+    $thumb-icon_size,
+    $thumb-icon_height,
+    $thumb-icon_font-type,
+    $thumb-icon_color
+) {
+    width:          $thumb-icon_width;
+    height:         $thumb-icon_height;
+    font-size:      $thumb-icon_size;
+    line-height:    $thumb-icon_height;
+    font-family:    $thumb-icon_font-type;
+    color:          $thumb-icon_color;
+}

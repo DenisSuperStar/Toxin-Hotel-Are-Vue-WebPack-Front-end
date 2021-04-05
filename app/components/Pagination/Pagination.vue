@@ -1,8 +1,8 @@
 <template lang="pug">
     div(class="just-pagination")
         span(class=`
-                just-pagination__control 
-                just-pagination__control--prev`
+                just-pagination__button 
+                just-pagination__button--prev`
                 v-if="page != 1"
                 @click="page--"
         )
@@ -23,8 +23,8 @@
         ) {{number_page}}
         span(
             class=`
-                just-pagination__control 
-                just-pagination__control--next`
+                just-pagination__button 
+                just-pagination__button--next`
                 @click="page++"
                 v-if="page < pages.length"
         )
@@ -32,6 +32,7 @@
 
 <style lang="scss" scoped>
     @import '../Pagination/mixinPagination.scss';
+    @import '../Pagination/optionsPagination.scss';
 
     @mixin flexible($align, $item) {
         display: flex;
@@ -39,50 +40,53 @@
         align-items: $item;
     }
 
-    /*paginator не компонент, а простой блок, сделать простым блоком*/
-
     .just-pagination {
         width: 100%;
         display: flex;
         justify-content: center;
-        &__button,
-        &__control {
+        &__button {
             position: relative;
             @include flexible(center, center);
-            width: $pagination_width;
-            height: $pagination_height;
-        }
-        &__button {
-            background: $pagination_button_default_background;
-            color: $pagination_button_default_color-text;
+            @include button(
+                $btn_width,
+                $btn_height,
+                $btn_default_background,
+                $btn_default_color
+            );
             cursor: pointer;
         }
         &__button.is-active-button {
-            background: $pagination_active-button_background;
-            color: $pagination_active-button_color-text;
-            border-radius: $pagination_active-button_round;
+            @include buttonActive(
+                $btn-active_background,
+                $btn-active_color,
+                $btn-active_round
+            );
         }
-        &__control {
+        &__button {
             &--prev,
             &--next {
-                background: $pagintion_background_control;
-                border-radius: $pagintion_round_control; 
+                @include thumb(
+                    $thumb_background,
+                    $thumb_round
+                ); 
             }
             &--prev::after {
-                content: $pagination_prev-control_img;
+                content: $icon-prev_image;
             }
             &--next::after {
-                content: $pagination_next-control_img;
+                content: $icon-next_image;
             }
             &--prev::after,
             &--next::after {
                 @include flexible(center, center);
-                width: $pagination_control_width;
-                height: $pagination_control_height;
-                font-size: $pagination_size_icon-control;
-                line-height: $pagintion_height_icon-control;
-                color: $pagintion_color_icon-control;
-                font-family: $pagintion_icon-control_type-font;
+                @include thumbIcon(
+                    $icon_width,
+                    $icon_height,
+                    $icon_size,
+                    $icon_height,
+                    $icon_color,
+                    $icon_font
+                );
             }
         }
     }
@@ -94,7 +98,7 @@
             & > &__button:first-child {
                 margin: 0 0 0 48.26px;
             }
-            & > &__control {
+            & > &__button {
                 &--next {
                     margin: 0 auto 0 0;
                 }
