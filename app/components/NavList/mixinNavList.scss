@@ -1,0 +1,25 @@
+@mixin selfTitle(
+    $self-title_bold,
+    $self-title_size,
+    $self-title_height,
+    $self-title_color,
+    $self-title_transform
+) {
+    font-weight:        $self-title_bold;
+    font-size:          $self-title_size;
+    line-height:        $self-title_height;
+    color:              $self-title_color;
+    text-transform:     $self-title_transform;
+}
+
+@mixin selfItem(
+    $self-item_bold,
+    $self-item_size,
+    $self-item_height,
+    $self-item_color
+) {
+    font-weight:    $self-item_bold;
+    font-size:      $self-item-size;
+    line-height:    $self-item_height;
+    color:          $self-item_color;
+}

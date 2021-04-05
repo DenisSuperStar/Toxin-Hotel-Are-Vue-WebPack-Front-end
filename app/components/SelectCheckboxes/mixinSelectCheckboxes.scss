@@ -1,0 +1,13 @@
+@mixin currentPlaceholder(
+    $current-placeholder_bold,
+    $current-placeholder_size,
+    $current-placeholder_height,
+    $current-placeholder_color,
+    $current-placeholder_transform
+) {
+    font-weight:        $current-placeholder_bold;
+    font-size:          $current-placeholder_size;
+    line-height:        $current-placeholder_height;
+    color:              $current-placeholder_color;
+    text-transform:     $current-placeholder_transform;
+}

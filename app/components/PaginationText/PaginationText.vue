@@ -4,7 +4,7 @@
 
 <style lang="scss" scoped>
     @import '../../mixinApp.scss';
-    @import '../PaginationText/mixinPaginationText.scss';
+    @import '../PaginationText/optionsPaginationText.scss';
 
     .pagination-text {
         display: flex;

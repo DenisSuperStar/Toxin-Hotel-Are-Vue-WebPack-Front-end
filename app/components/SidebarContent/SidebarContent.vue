@@ -54,8 +54,8 @@
     import range_slider from '../RangeSlider/RangeSlider.vue';
     import subheader from '../Subheader/Subheader.vue';
     import select_simple from '../SelectSimple/SelectSimple.vue';
-    import select_with_counter from '../SelectWithCounter/SelectWithCounter.vue';
-    import select_score from '../SelectWithCheckBoxes/SelectWithCheckboxes.vue';
+    import select_with_counter from '../SelectCounter/SelectCounter.vue';
+    import select_score from '../SelectCheckboxes/SelectCheckboxes.vue';
     import label_checkbox from '../LabelCheckbox/LabelCheckbox.vue';       
 
     export default {

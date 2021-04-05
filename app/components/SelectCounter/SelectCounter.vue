@@ -1,6 +1,12 @@
 <template lang="pug">
-    div(class="select-with-counter" :class="{active: show_dropdown}")
-        div(class="select-with-counter__header" @click.self="toggleDropdown")
+    div(
+        class="select-with-counter" 
+        :class="{active: show_dropdown}"
+    )
+        div(
+            class="select-with-counter__header" 
+            @click.self="toggleDropdown"
+        )
             span(
                 class=`
                     select-with-counter__current 
@@ -31,7 +37,7 @@
                             span(class="select-with-counter__dec" ref="dec" @click="option.count -= 1") -
                             span(
                                     class="select-with-counter__value reset" 
-                                    :class="[{'value-danger': option.count < 0}, {'value-primary': option.count > 0}]" 
+                                    :class="[{'is-value-danger': option.count < 0}, {'is-value-primary': option.count > 0}]" 
                                     @click="resetCounter"
                                 ) {{option.count}}
                             span(class="select-with-counter__inc" ref="inc" @click="option.count += 1") + 
@@ -71,12 +77,14 @@
     @import '../../mixinApp.scss';
     @import '../../mixinGlobal.scss';
     @import '../../select.scss';
-    @import './mixinSelectWithCounter.scss';
+    @import '../SelectCounter/mixinSelectCounter.scss';
+    @import '../SelectCounter/optionsSelectCounter.scss';
 
     .select-with-counter {
+        font-family: $app_font;
         &__current {
             &--narrow {
-                width: $select-header_width_narrow;
+                width: $placeholder_narrow;
             }
         }
         &__body {
@@ -91,19 +99,18 @@
             }
         }
         &__item {
+            @include currentItem(
+                $item_bold,
+                $item_size-text,
+                $item_line-height,
+                $item_color,
+                $item_text_transform
+            );
             &--flexible {
                 @include flexible(space-between, center);
             }
             &--transform {
-                font-size: $select-header_text_size;
-                line-height: $select-header_text_height;
-                font-family: $app_font;
-                text-transform: $select-header_type_text;
                 padding: 0 0 0 15px;
-            }
-            &--bold {
-                font-weight: $select-header_text_weight;
-                color: $select-header_color_weight;
             }
             &--colored:hover {
                 color: inherit;
@@ -111,8 +118,8 @@
         }
         &__item--colored:hover &__option,
         &__item--colored:hover &__value {
-            color: $select-item_color_hovered;
-            background: $select-item_background_hovered_colored;
+            color: $item_color_hovered;
+            background: $item_background_hovered;
         }
         /*
             This block with styles of elements
@@ -129,44 +136,57 @@
         }
         &__option {
             @include flexible(center, center);
-            font: bold 12px / 15px 'Montserrat', sans-serif;
-            text-transform: uppercase;
-            color: #1f2041;
+            @include currentItem(
+                $item_bold,
+                $item_size-text,
+                $item_line-height,
+                $item_color,
+                $item_text_transform
+            );
             @include slice();
         }
         &__dec,
         &__inc {
             @include flexible(center, center);
-            width: 30px;
-            height: 30px;
-            background: #fff;
-            border-radius: 22px;
-            border: 1px solid rgba(31, 32, 65, 0.25);
-            font: 18px / 22px 'Montserrat', sans-serif;
-            color: rgba(31, 32, 65, 0.5);
+            @include buttonInc(
+                $inc_width,
+                $inc_height,
+                $inc_background,
+                $inc_round,
+                $inc_border-width,
+                $inc_border-style,
+                $inc_border-color,
+                $inc_font-size,
+                $inc_line-height,
+                $inc_color
+            );
             cursor: pointer;
             @include slice();
         }
         &__value {
             @include flexible(center, center);
-            width: 30px;
-            height: 30px;
-            background: transparent;
-            border: none;
-            font: bold 12px / 15px 'Montserrat', sans-serif;
+            @include buttonInc(
+                $value_width,
+                $value_height,
+                $value_background,
+                $value_round,
+                $value_border-thick,
+                $value_border-style,
+                $value_border-color,
+                $value_font-size,
+                $value_line-height,
+                $value_color
+            );
+            text-transform: $value_transform;
             padding: 0;
-            color: #1f2041;
-            text-transform: uppercase;
-            cursor: pointer;
             @include slice();
+            cursor: pointer;
         }
-    }
-
-    .value-danger {
-        color: rgba(220, 53, 69, 0.5);
-    }
-
-    .value-primary {
-        color: #8ba4f9;
+        &__value.is-value-primary {
+            color: $value_primary;
+        }
+        &__value.is-value-danger {
+            color: $value_danger;
+        }
     }
 </style>

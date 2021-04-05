@@ -15,6 +15,8 @@
 </script>
 
 <style lang="scss" scoped>
+    @import '../RedirectButton/optionsRedirectButton.scss';
+
     .redirect-button {
         display: block;
         position: relative;
@@ -26,16 +28,16 @@
         & > &__link {
             display: block;
             position: relative;
-            color: #fff;
+            color: $redirect_color;
             /*
                 border thick
             */
-            margin: 2px;
+            margin: $redirect_border-width;
             /*
                 inside indents
             */
             padding: 6px;
-            background: linear-gradient(180deg, #bc9cff 0, #8ba4f9 100%);
+            background: $redirect_background;
         }
         /*
             styles of animated link

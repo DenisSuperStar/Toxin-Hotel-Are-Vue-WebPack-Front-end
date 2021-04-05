@@ -1,0 +1,38 @@
+@mixin currentItem(
+    $current-item_bold,
+    $current-item_size-text: 12px,
+    $current-item_line-height: 15px,
+    $current-item_color: #1f2041,
+    $current-item_transform: uppercase
+) {
+    font-weight:        $current-item_bold;
+    font-size:          $current-item_size-text;
+    line-height:        $current-item_line-height;
+    color:              $current-item_color;
+    text-transform:     $current-item_transform;
+}
+
+@mixin buttonInc(
+    $button-inc_width,
+    $button-inc_height,
+    $button-inc_background,
+    $button-inc_round,
+    $button-inc_border-thick,
+    $button-inc_border-style,
+    $button-inc_border-color,
+    $button-inc_size-text,
+    $button-inc_line-height,
+    $button-inc_color
+
+) {
+    width:              $button-inc_width;
+    height:             $button-inc_height;
+    background:         $button-inc_background;
+    border-radius:      $button-inc_round;
+    border-width:       $button-inc_border-thick;
+    border-style:       $button-inc_border-style;
+    border-color:       $button-inc_border-color;
+    font-size:          $button-inc_size-text;
+    line-height:        $button-inc_line-height;
+    color:              $button-inc_color 
+}

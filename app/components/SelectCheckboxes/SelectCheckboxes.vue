@@ -1,12 +1,17 @@
 <template lang="pug">
-    div(class="select-score select-score--free" :class="{active: show_list}")
-        div(class="select-score__header" @click="toggleList")
+    div(
+        class="select-score select-score--free" 
+        :class="{active: show_list}"
+    )
+        div(
+            class="select-score__header" 
+            @click="toggleList"
+        )
             span(
                     class=`
-                        select-score__current 
-                        select-score__current--bold 
-                        select-score__current--uppercase
-                        select-score__current--transform`
+                        select-score__current
+                        select-score__current--free
+                    `
                 ) {{placeholder}}
             div(
                 class=`
@@ -63,29 +68,26 @@
     @import '../../mixinApp.scss';
     @import '../../mixinGlobal.scss';
     @import '../../select.scss';
+    @import '../SelectCheckboxes/mixinSelectCheckboxes.scss';
+    @import '../SelectCheckboxes/optionsSelectCheckboxes.scss';
     
-
     .broken {
         border: none;
     }
 
     .select-score {
+        font-family: $app_font;
         &--free {
             @extend .broken;
         }
         &__current {
-            &--bold {
-                font-weight: bold;
-                color: #1f2041; 
-            }
-            &--uppercase {
-                text-transform: uppercase;
-            }
-            &--transform {
-                font-size: 12px;
-                line-height: 15px;
-                font-family: $app_font;
-            }
+            @include currentPlaceholder(
+                $placeholder_bold,
+                $placeholder_size,
+                $placeholder_height,
+                $placeholder_color,
+                $placeholder_transform
+            );
         }
         &__text {
             margin-right: auto;

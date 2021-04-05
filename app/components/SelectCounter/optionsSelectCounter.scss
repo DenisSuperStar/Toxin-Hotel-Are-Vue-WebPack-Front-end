@@ -1,0 +1,61 @@
+/*
+    current placeholder of select options
+*/
+
+$placeholder_narrow: 160px;
+
+/*
+    current item of select options
+*/
+
+$item_bold: bold;
+$item_size-text: 12px;
+$item_line-height: 15px;
+$item_color: #1f2041;
+$item_text_transform: uppercase;
+
+/*
+    state current item of select options
+*/
+
+$item_color_hovered: #fff;
+$item_background_hovered: linear-gradient(180deg, #bc9cff 0, #8ba4f9 100%);
+
+/*
+    button inc in select options
+*/
+
+$inc_width: 30px;
+$inc_height: 30px;
+$inc_background: #fff;
+$inc_round: 22px;
+$inc_border-width: 1px;
+$inc_border-style: solid;
+$inc_border-color: rgba(31, 32, 65, 0.25);
+$inc_font-size: 18px;
+$inc_line-height: 22px;
+$inc_color: rgba(31, 32, 65, 0.5);
+
+/*
+    display value options
+*/
+
+$value_width: 30px;
+$value_height: 30px;
+$value_background: transparent;
+$value_round: 0;
+$value_border-thick: 0;
+$value_border-style: none;
+$value_border-color: transparent;
+$value_font-size: 12px;
+$value_line-height: 15px;
+$value_color: #1f2041;
+
+$value_transform: uppercase;
+
+/*
+    display visual value options 
+*/
+
+$value_primary: #8ba4f9;
+$value_danger: rgba(220, 53, 69, 0.5);
