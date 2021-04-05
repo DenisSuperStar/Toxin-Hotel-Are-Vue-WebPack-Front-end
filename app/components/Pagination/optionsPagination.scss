@@ -1,0 +1,40 @@
+/*
+    button default options
+*/
+
+$btn_width: 40px;
+$btn_height: 40px;
+$btn_default_background: #fff;
+$btn_default_color: rgba(31, 32, 65, 0.5);
+
+/*
+    button active options
+*/
+
+$btn-active_background: linear-gradient(180deg, #bc9cff 0, #8ba4f9 100%);
+$btn-active_color: #fff;
+$btn-active_round: 22px;
+
+/*
+    icon images
+*/
+
+$icon-prev_image:'\f060';
+$icon-next_image:'\f061';
+
+/*
+    thumb options
+*/
+
+$thumb_background: linear-gradient(180deg, #6fcf97 0, #66d2ea 100%);
+$thumb_round: 22px;
+
+/*
+    icon options
+*/
+$icon_width: 24px;
+$icon_height: 24px;
+$icon_size: 20px;
+$icon_height: 24px;
+$icon_color: #fff;
+$icon_font: 'Font Awesome 5 Pro';
