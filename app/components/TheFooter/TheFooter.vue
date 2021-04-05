@@ -58,27 +58,24 @@
 </script>
 
 <style lang="scss" scoped>
+    @import '../../mixinGlobal.scss';
     @import '../TheFooter/mixinFooter.scss';
+    @import '../TheFooter/optionsFooter.scss';
 
-    @mixin flexible($align, $item) {
-        display: flex;
-        justify-content: $align;
-        align-items: $item;
-    }
     .footer {
-        min-width: $footer_min_width;
-        width: $footer_width;
-        background: $footer_background;
+        @include footer(
+            $footer_min_width,
+            $footer_width,
+            $footer_background
+        );
         &__navigation-box {
             @include flexible(space-between, center);
             &--limited {
-                border-top-width: $footer_border-thick;
-                border-top-style: $footer_border-style;
-                border-top-color: $footer_border-color;
-
-                border-bottom-width: $footer_border-thick;
-                border-bottom-style: $footer_border-style;
-                border-bottom-color: $footer_border-color;
+                @include drawCoupleLines(
+                    $footer_border-thick,
+                    $footer_border-style,
+                    $footer_border-color
+                );
             }
         }
         &__client-box {

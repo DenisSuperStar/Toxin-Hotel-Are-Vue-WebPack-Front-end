@@ -69,7 +69,8 @@
 
 <style lang="scss" scoped>
     @import '../../mixinApp.scss';
-    @import '../../mixinSelect.scss';
+    @import '../../mixinGlobal.scss';
+    @import '../../select.scss';
     @import './mixinSelectWithCounter.scss';
 
     .select-with-counter {

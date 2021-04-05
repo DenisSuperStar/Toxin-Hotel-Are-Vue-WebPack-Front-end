@@ -1,116 +1,85 @@
-@import './mixinApp.scss';
-@import './mixinOptionsSelect.scss';
-
-/*
-    import mixin with some file
-*/
-@mixin flexible($align, $item) {
-    display: flex;
-    justify-content: $align;
-    align-items: $item;
+@mixin selectSelf(
+    $self_width,
+    $self_background,
+    $self_border-width,
+    $self_border-style,
+    $self_border-color,
+    $self_border-radius
+) {
+    width:              $self_width;
+    background:         $self_background;
+    border-width:       $self_border-width;
+    border-style:       $self_border-style;
+    border-color:       $self_border-color;
+    border-radius:      $self_border-radius;
 }
 
-@mixin slice {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+@mixin selectHeader(
+    $select_height,
+    $select_round
+) {
+    height:             $select_height;
+    border-radius:      $select_round;
 }
 
-.simple-select,
-.select-with-counter,
-.select-score {
-    position: relative;
-    width: $select_width;
-    background: $select_background;
-    border-width: $select_border-width;
-    border-style: $select_border-style;
-    border-color: $select_border-color;
-    border-radius: $select_rounding;
-    cursor: pointer;
-    &__header {
-        @include flexible(space-between, center);
-        height: $select-header_height;
-        border-radius: $select-header_rounding;
-        padding: 12px 0 8px 15px;
-    }
-    &__current {
-        font-size: $select-header-text_size;
-        line-height: $select-header-text_height;
-        font-family: $app_font;
-        color: $select-header-text_color;  
-        @include slice();
-    }
-    &__icon {
-        pointer-events: none;
-        &::after {
-            @include flexible(center, center);
-            width: $select-box-icon_width;
-            height: $select-box-icon_height;
-            content: $select-icon_content;
-            font-size: $select-icon_size;
-            line-height: $select-icon_text_height;
-            font-family: $select-icon_font;
-            color: $select-icon_color;
-        }
-        /*
-            select icon animation
-        */
-        &--animated-icon {
-            transform: rotate(0deg);
-            transition: transform 0.3s ease;
-        }
-    }
-    &.active &__icon {
-        &--animated-icon {
-            transform: rotate(180deg);
-            transition: transform 0.3s ease;
-        }
-        &--animated-icon::after {
-            color: $select-icon_rotate_color;
-        }
-    }
-    &__body {
-        position: absolute;
-        width: $select-body_width;
-        box-shadow: 0 10px 20px $select-body_shadow_color;
-        border-top-left-radius: $select-body_top_left_corner;
-        border-top-right-radius: $select-body_top_right_corner;
-        border-bottom-left-radius: $select-body_bottom_left_corner;
-        border-bottom-right-radius: $select-body_bottom_right_corner;
-        max-height: 181px;
-        overflow: auto;
-        margin: 1px 0 0 0;
-    }
-    &__item {
-        border-bottom-width: $select-item_border_thick;
-        border-bottom-style: $select-item_border_style;
-        border-bottom-color: $select-item_border_color;
-        background: $select-item_background;
-        font-size: $select-item_text_size;
-        line-height: $select-item_text_height;
-        font-family: $app_font;
-        color: $select-item_color;
-        padding: 12px 0 8px 15px;
-        cursor: pointer;
-        @include slice();
-        &:hover {
-            color: $select-item_color_hovered;
-            background: $select-item_background_hovered;
-        }
-        &--colored:hover {
-            background: $select-item_background_hovered_colored;
-        }
-    }
+@mixin placeholderSelect(
+    $current_size,
+    $current_height,
+    $current_color
+) {
+    font-size:      $current_size;
+    line-height:    $current_height;
+    color:          $current_color;
 }
 
-/*
-    select animation of transition object
-*/
-
-.dropdown-enter-active, .dropdown-leave-active {
-    transition: height 0.5s ease-in-out;
+@mixin iconSelect(
+    $icon_content,
+    $icon_width,
+    $icon_height,
+    $icon_size,
+    $icon_line-height,
+    $icon_font,
+    $icon_color
+) {
+    content: $icon_content;
+    width: $icon_width;
+    height: $icon_height;
+    font-size: $icon_size;
+    line-height: $icon_line-height;
+    font-family: $icon_font;
+    color: $icon_color;
 }
 
-.dropdown-enter, .dropdown-leave-to {
-    height: 0;
+@mixin bodySelect(
+    $body_max-height,
+    $body_width,
+    $body_color_shadow,
+    $body_top_round,
+    $body_bottom_round
+) {
+    max-height:                     $body_max-height;
+    width:                          $body_width;
+    box-shadow:                     0 10px 20px $body_color_shadow;
+    border-top-left-radius:         $body_top_round;
+    border-top-right-radius:        $body_top_round;
+    border-bottom-left-radius:      $body_bottom_round;
+    border-bottom-right-radius:     $body_bottom_round;
+}
+
+@mixin itemSelect(
+    $item_background,
+    $item_border-thick,
+    $item_border-style,
+    $item_border-color,
+    $item_size-text,
+    $item_line-height,
+    $item_color
+) {
+    background:             $item_background;
+    border-bottom-width:    $item_border-thick;
+    border-bottom-style:    $item_border-style;
+    border-bottom-color:    $item_border-color;
+    font-size:              $item_size-text;
+    line-height:            $item_line-height;
+    color:                  $item_color;
 }

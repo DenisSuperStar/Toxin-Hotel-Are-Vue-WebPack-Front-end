@@ -47,13 +47,14 @@
 <style lang="scss">
     @import '../../mixinApp.scss';
     @import '../Subheader/mixinSubheader.scss';
+    @import '../Subheader/optionsSubheader.scss';
 
     @mixin slice {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
-
+    
     .subheader {
         &__old,
         &__changing {
@@ -66,12 +67,14 @@
         &__old,
         &__one.is-move-character {
             display: block;
-            font-weight: $subheader_bold;
-            font-size: $subheader_size;
-            line-height: $subheader_height;
+            @include subheader(
+                $subheader_bold,
+                $subheader_size,
+                $subheader_height,
+                $subheader_color,
+                $subheader_transform
+            );
             font-family: $app_font;
-            color: $subheader_color;
-            text-transform: $subheader_transform;
         }
         &__changing {
             position: relative;

@@ -60,14 +60,10 @@
 </script>
 
 <style lang="scss">
-    @import '../../mixinSelect.scss';
     @import '../../mixinApp.scss';
-
-    @mixin flexible($align, $item) {
-        display: flex;
-        justify-content: $align;
-        align-items: $item;
-    }
+    @import '../../mixinGlobal.scss';
+    @import '../../select.scss';
+    
 
     .broken {
         border: none;

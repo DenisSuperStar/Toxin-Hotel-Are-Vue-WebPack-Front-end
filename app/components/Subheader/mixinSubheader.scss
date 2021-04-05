@@ -1,8 +1,13 @@
-$subheader_bold: bold;
-$subheader_size: 12px;
-$subheader_height: 15px;
-$subheader_color: #1f2041;
-$subheader_transform: uppercase;
-
-$subheader_color_new_state: #fff;
-$subheader_background_new_state: linear-gradient(180deg, #bc9cff 0, #8ba4f9 100%);
+@mixin subheader(
+    $under_title_bold,
+    $under_title_size,
+    $under_title_text_height,
+    $under_title_color,
+    $under_title_transform
+) {
+    font-weight:        $under_title_bold;
+    font-size:          $under_title_size;
+    line-height:        $under_title_text_height;
+    color:              $under_title_color;
+    text-transform:     $under_title_transform;
+}

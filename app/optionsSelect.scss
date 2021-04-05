@@ -1,0 +1,65 @@
+/*
+    select self options
+*/
+
+$select_width: 100%;
+$select_height: 44px;
+$select_background: #fff;
+$select_border-width: 1px;
+$select_border-style: solid;
+$select_border-color: rgba(31, 32, 65, 0.25);
+$select_round: 4px;
+
+/*
+    placeholder of select options
+*/
+
+$placeholder_size: 14px;
+$placeholder_height: 24px;
+$placeholder_color: rgba(31, 32, 65, 0.75);
+
+/*
+    icon of select options
+*/
+
+$icon_image: '\f107';
+$icon_width: 44px;
+$icon_height: 44px;
+$icon_size: 24px;
+$icon_line-height: 24px;
+$icon_font: 'Font Awesome 5 Pro';
+$icon_color: rgba(31, 32, 65, 0.5);
+
+/*
+    select icon animated
+*/
+
+$icon_rotate_color: #8ba4f9;
+
+/*
+    body of select options 
+*/
+$body_max-height: 181px;
+$body_width: 100%;
+$body_shadow-color: rgba(31, 32, 65, 0.05);
+$body_top_round: 0;
+$body_bottom_round: 4px;
+
+/*
+    item of select options
+*/
+$item_border-thick: 1px;
+$item_border-style: solid;
+$item_border-color: rgba(31, 32, 65, 0.25);
+$item_background: #fff;
+$item_size-text: 14px;
+$item_line-height: 24px;
+$item_color: rgba(31, 32, 65, 0.75);
+
+/*
+    item of select hovered options
+*/
+
+$item_color_hovered: #fff;
+$item_background_hovered: rgba(31, 32, 65, 0.75);
+$item_background_hovered_change: linear-gradient(180deg, #bc9cff 0, #8ba4f9 100%);

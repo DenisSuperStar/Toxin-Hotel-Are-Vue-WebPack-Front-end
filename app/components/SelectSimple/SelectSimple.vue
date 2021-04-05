@@ -56,8 +56,7 @@
 </script>
 
 <style lang="scss" scoped>
-
-  @import '../../mixinSelect.scss';
+  @import '../../select.scss';
 
   .simple-select {
     &.active {

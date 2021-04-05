@@ -1,0 +1,124 @@
+@import './mixinApp.scss';
+@import './mixinSelect.scss';
+@import './optionsSelect.scss';
+
+@mixin flexible($align, $item) {
+    display: flex;
+    justify-content: $align;
+    align-items: $item;
+}
+
+@mixin slice {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.simple-select,
+.select-with-counter,
+.select-score {
+    position: relative;
+    @include selectSelf(
+        $select_width,
+        $select_background,
+        $select_border-width,
+        $select_border-style,
+        $select_border-color,
+        $select_round
+    );
+    cursor: pointer;
+    &__header {
+        @include flexible(space-between, center);
+        @include selectHeader(
+            $select_height,
+            $select_round
+        );
+        padding: 12px 0 8px 15px;
+    }
+    &__current {
+        @include placeholderSelect(
+            $placeholder_size,
+            $placeholder_height,
+            $placeholder_color
+        );
+        font-family: $app_font;  
+        @include slice();
+    }
+    &__icon {
+        pointer-events: none;
+        &::after {
+            @include flexible(center, center);
+            @include iconSelect(
+                $icon_image,
+                $icon_width,
+                $icon_height,
+                $icon_size,
+                $icon_line-height,
+                $icon_font,
+                $icon_color
+            );
+        }
+        /*
+            select icon animation
+        */
+        &--animated-icon {
+            transform: rotate(0deg);
+            transition: transform 0.3s ease;
+        }
+    }
+    &.active &__icon {
+        &--animated-icon {
+            transform: rotate(180deg);
+            transition: transform 0.3s ease;
+        }
+        &--animated-icon::after {
+            color: $icon_rotate_color;
+        }
+    }
+    &__body {
+        position: absolute;
+        @include bodySelect(
+            $body_max-height,
+            $body_width,
+            $body_shadow-color,
+            $body_top_round,
+            $body_bottom_round
+        );
+        overflow: auto;
+        margin: 1px 0 0 0;
+    }
+    &__item {
+        @include itemSelect(
+            $item_background,
+            $item_border-thick,
+            $item_border-style,
+            $item_border-color,
+            $item_size-text,
+            $item_line-height,
+            $item_color
+        );
+        font-family: $app_font;
+        padding: 12px 0 8px 15px;
+        cursor: pointer;
+        @include slice();
+        &:hover {
+            color: $item_color_hovered;
+            background: $item_background_hovered;
+        }
+        &--colored:hover {
+            background: $item_background_hovered_change;
+        }
+    }
+}
+
+/*
+    select animation of transition object
+*/
+
+.dropdown-enter-active, .dropdown-leave-active {
+    transition: height 0.5s ease-in-out;
+}
+
+.dropdown-enter, .dropdown-leave-to {
+    height: 0;
+}

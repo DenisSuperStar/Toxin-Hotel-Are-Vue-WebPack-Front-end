@@ -32,24 +32,18 @@
 </script>
 
 <style lang="scss" scoped>
+    @import '../../mixinGlobal.scss';
     @import '../TheHeader/mixinHeader.scss';
-
-    @mixin flexible($align, $item) {
-        display: flex;
-        justify-content: $align;
-        align-items: $item;
-    }
-
-    /*
-        Добавить обработчик события scroll
-    */
+    @import '../TheHeader/optionsHeader.scss';
 
     .header {
         @include flexible(space-between, center);
         padding: 15px 140px;
-        width: $header_width;
-        min-width: $header_min-width;
-        background: $header_background;
+        @include header(
+            $header_min-width,
+            $header_width,
+            $header_background
+        );
         box-shadow: none;
         &--slow-motion {
             transition: all 0.5s ease-in-out;

@@ -199,16 +199,7 @@
 </script>
 
 <style lang="scss" scoped>
-
-    @mixin flexible($align, $item) {
-        display: flex;
-        justify-content: $align;
-        align-items: $item;
-    }
-
-    /*
-        Clean styles in sidebar
-    */
+    @import '../../mixinGlobal.scss';
 
     .sidebar-box {
         padding: 0 59px 0 140px;

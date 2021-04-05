@@ -1,10 +1,23 @@
-$footer_min_width: 350px;
-$footer_width: 100%;
-$footer_background: #fff;
+@mixin footer(
+    $footer_min_width,
+    $footer_width,
+    $footer_background
+) {
+    min-width:      $footer_min_width;
+    width:          $footer_width;
+    background:     $footer_background;
+}
 
-$footer_border-thick: 1px;
-$footer_border-style: solid;
-$footer_border-color: rgba(31, 32, 65, 0.1);
+@mixin drawCoupleLines(
+    $footer_border-thick,
+    $footer_border-style,
+    $footer_border-color
+) {
+    $border-top-width:      $footer_border-thick;
+    $border-top-style:      $footer_border-style;
+    $border-top-color:      $footer_border-color;
 
-
-$footer_shadow_color_of_custom: rgba(31, 32, 65, 0.05);
+    $border-bottom-width:   $footer_border-thick;
+    $border-bottom-style:   $footer_border-style;
+    $border-bottom-color:   $footer_border-color;
+}

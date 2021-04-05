@@ -1,5 +1,13 @@
-$title-gallery_bold: bold;
-$title-gallery_size: 24px;
-$title-gallery_height-text: 29px;
-$title-gallery_color: #1f2041;
-$title-gallery_transform: uppercase;
+@mixin title-gallery(
+    $title_bold,
+    $title_size,
+    $title_line-height,
+    $title_color,
+    $title_transform
+) {
+    font-weight:        $title_bold;
+    font-size:          $title_size;
+    line-height:        $title_line-height;
+    color:              $title_color;
+    text-transform:     $title_transform;
+}

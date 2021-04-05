@@ -27,15 +27,16 @@
 </script>
 
 <style lang="scss" scoped>
+    @import '../Social/optionsSocial.scss';
 
     .social-icon {
         width: max-content;
-        background: linear-gradient(180deg, #bc9cff 100%, #8ba4f9 100%);
+        background: $social_background;
         &__link,
         &__link:hover {
             display: block;
-            font-size: 24px;
-            background: #fff;
+            font-size: $social_size;
+            background: $social_background-hover;
             text-decoration: none;
             mix-blend-mode: screen;
         }
@@ -55,8 +56,8 @@
             }
             &--animated:hover::before {
                 padding: 20px;
-                background: linear-gradient(180deg, #bc9cff 100%, #8ba4f9 100%);
-                border-radius: 2px;
+                background: $social_animate;
+                border-radius: $social_animate_round;
                 transition: all 0.5s ease-in-out;
                 animation: jelly 0.75s ease forwards;
             }
@@ -66,8 +67,8 @@
     @keyframes jelly {
         0%, 20% {
             transform: scale(1);
-            border-radius: 40px;
-            background: linear-gradient(180deg, #bc9cff 100%, #8ba4f9 100%);
+            border-radius: $social_start_animate_round;
+            background: $social_start_animate_background;
         }
         30% {
             transform: scale(1.2);
@@ -81,7 +82,7 @@
         }
         60%, 100% {
             transform: scale(1);
-            border-radius: 5px;
+            border-radius: $social_end_animate_round;
         }
     }
 </style>
