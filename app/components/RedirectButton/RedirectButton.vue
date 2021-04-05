@@ -1,6 +1,6 @@
 <template lang="pug">
     a(href="//google.com" class="redirect-button")
-        span(class="redirect-button__link") {{redirect_link_text}}
+        span(class="redirect-button__link" :class="{'is-even': this.firefox}") {{redirect_link_text}}
 </template>
 
 <script>
@@ -8,8 +8,16 @@
         name: 'redirect_button',
         data: () => {
             return {
-                redirect_link_text: 'Смотреть отзывы'
+                redirect_link_text: 'Смотреть отзывы',
+                firefox: false
             }
+        },
+        created: function() {
+            /*
+                define browser name
+            */
+            const user = window.navigator.userAgent;
+            this.firefox = (user.indexOf('Firefox') !=-1);
         }
     }
 </script>
@@ -72,6 +80,15 @@
             */
             width: 100%;
             transform: translateX(0);
+        }
+        /*
+            firefox tweak
+        */
+        & > &__link.is-even {
+            margin-top: $redirect_border-width + 1px;
+            margin-right: $redirect_border-width;
+            margin-bottom: $redirect_border-width;
+            margin-left: $redirect_border-width;
         }
     }
 </style>

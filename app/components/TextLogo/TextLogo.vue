@@ -25,7 +25,7 @@
         font-style: normal;
         font-weight: bold;
         font-family: 'Montserrat', sans-serif;
-        width: 50px;
+        width: 55px;
         order: 1;
         @include slice();
         z-index: 100;

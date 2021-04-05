@@ -584,6 +584,7 @@
             height: 257px;
             background: #fff;
             box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
+            z-index: 12;
             &--front-side {
                 backface-visibility: hidden;
                 -webkit-backface-visibility: hidden;
@@ -604,6 +605,7 @@
             padding: 12px 12px 0 12px;
             border-top-left-radius: 4px;
             border-top-right-radius: 4px;
+            z-index: 6;
             &--vertical-stretch { /*pseudo height*/
                 /*
                     especial way for set the height
