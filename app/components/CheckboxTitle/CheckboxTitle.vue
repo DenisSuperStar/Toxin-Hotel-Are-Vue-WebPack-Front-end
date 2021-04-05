@@ -24,7 +24,7 @@
 
     .checkbox-title {
         display: block;
-        width: 200px;
+        width: 205px;
         height: max-content;
         font-weight: $checkbox_title_weight;
         line-height: $checkbox_title_height;
