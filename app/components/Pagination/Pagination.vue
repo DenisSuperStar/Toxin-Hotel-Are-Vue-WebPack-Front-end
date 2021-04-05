@@ -83,9 +83,9 @@
                     $icon_width,
                     $icon_height,
                     $icon_size,
-                    $icon_height,
-                    $icon_color,
-                    $icon_font
+                    $icon_line-height,
+                    $icon_font,
+                    $icon_color
                 );
             }
         }
@@ -94,7 +94,7 @@
     @media screen and (min-width: 1200px) and (max-width: 1450px) {
         .just-pagination {
             display: flex;
-            justify-content: space-around;
+            justify-content: flex-start;
             & > &__button:first-child {
                 margin: 0 0 0 48.26px;
             }

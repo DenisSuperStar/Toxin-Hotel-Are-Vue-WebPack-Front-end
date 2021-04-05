@@ -7,7 +7,7 @@
     width:          $button_width;
     height:         $button_height;
     background:     $button_default_background;
-    color:          $button_defaul_color;
+    color:          $button_default_color;
 }
 
 @mixin buttonActive(
@@ -32,14 +32,14 @@
     $thumb-icon_width,
     $thumb-icon_height,
     $thumb-icon_size,
-    $thumb-icon_height,
+    $thumb-icon_line-height,
     $thumb-icon_font-type,
     $thumb-icon_color
 ) {
     width:          $thumb-icon_width;
     height:         $thumb-icon_height;
     font-size:      $thumb-icon_size;
-    line-height:    $thumb-icon_height;
+    line-height:    $thumb-icon_line-height;
     font-family:    $thumb-icon_font-type;
     color:          $thumb-icon_color;
 }

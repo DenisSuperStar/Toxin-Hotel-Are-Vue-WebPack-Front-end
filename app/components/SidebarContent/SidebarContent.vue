@@ -52,7 +52,7 @@
     import checkbox_title from '../CheckboxTitle/CheckboxTitle.vue';
     import checkbox_text from '../CheckboxText/CheckboxText.vue';
     import range_slider from '../RangeSlider/RangeSlider.vue';
-    import subheader from '../SubheaderAnimated/SubheaderAnimated.vue';
+    import subheader from '../Subheader/Subheader.vue';
     import select_simple from '../SelectSimple/SelectSimple.vue';
     import select_with_counter from '../SelectWithCounter/SelectWithCounter.vue';
     import select_score from '../SelectWithCheckBoxes/SelectWithCheckboxes.vue';

@@ -20,7 +20,7 @@
         .pagination-text {
             display: flex;
             justify-content: flex-start;
-            font-size: $pagination-text_size - 1;
+            font-size: 12px;
         }
     }
 
