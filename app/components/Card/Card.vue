@@ -586,6 +586,8 @@
             box-shadow: 0 10px 20px rgba(31, 32, 65, 0.05);
             &--front-side {
                 backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
+                -moz-backface-visibility: hidden;
                 transform: rotateY(180deg);
             }
         }
@@ -611,6 +613,8 @@
             }
             &--visible-state {
                 backface-visibility: hidden;
+                -webkit-backface-visibility: hidden;
+                -moz--backface-visibility: hidden;
             }
         }
         &__content-background {
