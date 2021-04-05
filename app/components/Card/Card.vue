@@ -34,12 +34,14 @@
                                         card-rotating__prev 
                                         card-rotating__prev--appeared
                                         `
+                                        @click="move(-1)"
                                 )
                                 span(
                                     class=`
                                         card-rotating__next 
                                         card-rotating__next--appeared
                                         `
+                                        @click="move(1)"
                                 )
                     ul(
                         class=`
@@ -479,6 +481,15 @@
             },
             set: function(value) {
                 this.data_active = value;
+            },
+            move: function(shift) {
+                this.active += shift;
+                if (this.active < 1) {
+                    this.active = this.slides;
+                }
+                if (this.active > this.slides) {
+                    this.active = 1;
+                }
             }
         },
         created: function() {
