@@ -17,7 +17,8 @@
                 define browser name
             */
             const user = window.navigator.userAgent;
-            this.firefox = (user.indexOf('Firefox') !=-1);
+            console.log(user);
+            this.firefox = ((user.indexOf('Firefox') !=-1) && (user.indexOf('Windows NT 10.0') != 1));
         }
     }
 </script>
