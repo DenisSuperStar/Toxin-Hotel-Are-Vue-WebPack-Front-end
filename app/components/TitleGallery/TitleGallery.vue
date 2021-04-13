@@ -18,8 +18,8 @@
             $title-gallery_bold,
             $title-gallery_size,
             $title-gallery_text-height,
-            $title-gallery_color,
-            $title-gallery_transform
+            $title-gallery_color
         );
+        font-family: $app_font;
     }
 </style>

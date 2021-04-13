@@ -112,6 +112,18 @@
 <script>
     import hl from '../Hr/Hr.vue';
     import redirect_link from '../RedirectButton/RedirectButton.vue';
+    import room888 from '../../assets/imgs/image888.png';
+    import room840 from '../../assets/imgs/image840.png';
+    import room980 from '../../assets/imgs/image980.png';
+    import room856 from '../../assets/imgs/image856.png';
+    import room740 from '../../assets/imgs/image740.png';
+    import room982 from '../../assets/imgs/image982.png';
+    import room678 from '../../assets/imgs/image678.png';
+    import room450 from '../../assets/imgs/image450.png';
+    import room350 from '../../assets/imgs/image350.png';
+    import room666 from '../../assets/imgs/image666.png';
+    import room444 from '../../assets/imgs/image444.png';
+    import room352 from '../../assets/imgs/image352.png';
 
     export default {
         name: 'Card',
@@ -136,7 +148,7 @@
                     {
                         id: 1,
                         album_id: 1,
-                        url: 'https://via.placeholder.com/600/92c952',
+                        url: room888,
                         switch_id: 1,
                         extended: true
                     },
@@ -164,7 +176,7 @@
                     {
                         id: 5,
                         album_id: 2,
-                        url: 'https://via.placeholder.com/600/f66b97',
+                        url: room840,
                         switch_id: 1,
                         extended: false
                     },
@@ -192,7 +204,7 @@
                     {
                         id: 9,
                         album_id: 3,
-                        url: 'https://via.placeholder.com/600/51aa97',
+                        url: room980,
                         switch_id: 1,
                         extended: false
                     },
@@ -220,7 +232,7 @@
                     {
                         id: 13,
                         album_id: 4,
-                        url: 'https://via.placeholder.com/600/197d29',
+                        url: room856,
                         switch_id: 1,
                         extended: false
                     },
@@ -248,7 +260,7 @@
                     {
                         id: 17,
                         album_id: 5,
-                        url: 'https://via.placeholder.com/600/9c184f',
+                        url: room740,
                         switch_id: 1,
                         extended: false
                     },
@@ -276,7 +288,7 @@
                     {
                         id: 21,
                         album_id: 6,
-                        url: 'https://via.placeholder.com/600/5e12c6',
+                        url: room982,
                         switch_id: 1,
                         extended: false
                     },
@@ -304,7 +316,7 @@
                     {
                         id: 25,
                         album_id: 7,
-                        url: 'https://via.placeholder.com/600/5e3a73',
+                        url: room678,
                         switch_id: 1,
                         extended: false
                     },
@@ -332,7 +344,7 @@
                     {
                         id: 29,
                         album_id: 8,
-                        url: 'https://via.placeholder.com/600/602b9e',
+                        url: room450,
                         switch_id: 1,
                         extended: false
                     },
@@ -360,7 +372,7 @@
                     {
                         id: 33,
                         album_id: 9,
-                        url: 'https://via.placeholder.com/600/501fe1',
+                        url: room350,
                         switch_id: 1,
                         extended: false
                     },
@@ -388,7 +400,7 @@
                     {
                         id: 37,
                         album_id: 10,
-                        url: 'https://via.placeholder.com/600/ea51da',
+                        url: room666,
                         switch_id: 1,
                         extended: false
                     },
@@ -416,7 +428,7 @@
                     {
                         id: 41,
                         album_id: 11,
-                        url: 'https://via.placeholder.com/600/659403',
+                        url: room444,
                         switch_id: 1,
                         extended: false
                     },
@@ -444,7 +456,7 @@
                     {
                         id: 45,
                         album_id: 12,
-                        url: 'https://via.placeholder.com/600/c4084a',
+                        url: room352,
                         switch_id: 1,
                         extended: false
                     },
@@ -493,7 +505,7 @@
             }
         },
         created: function() {
-            this.data_active = this.countActiveStars; 
+            this.data_active = this.countActiveStars;
         },
         props: {
             number: {
